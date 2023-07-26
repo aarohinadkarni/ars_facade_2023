@@ -15,6 +15,9 @@ Trigger trigger8;
 Trigger trigger9;
 Trigger trigger10;
 
+color crackColor;
+color backgroundColor;
+
 ArrayList<Pixel> allCracks = new ArrayList<Pixel>();
 
 boolean isDrawing1;
@@ -101,6 +104,9 @@ void setup() {
   crack5Pixels.add(new Pixel(27,20,1,1));
   //rect(27,22,1,1);
   crack5Pixels.add(new Pixel(27,22,1,1));  
+  
+  crackColor = color(225);
+  backgroundColor = color(255, 151, 23);
 }
 
 void draw() {
@@ -122,13 +128,13 @@ void draw() {
 
   for (int y = 0; y < 30; y += step) {
     for (int x = 0; x < 75; x+= step) {
-      fill(255, 151, 23);
+      fill(backgroundColor);
       rect(x, y, 1, step);
     }
   }
 
   for (Pixel crack : allCracks) {
-    fill(0);
+    fill(crackColor);
     rect(crack.x, crack.y, crack.size, crack.step);
   }
   drawPharus(); 
@@ -179,7 +185,7 @@ void draw() {
   } else if (mouseX/aec.getScaleX() == trigger10.x && mouseY/aec.getScaleY() == trigger10.y) {
     drawCrack10();
   } 
-  //drawCrack1();
+  //drawCrackTop();
   drawCrack5();
   //rect(36,8+1,1,step);
   //rect(34,9+1,1,step);
@@ -440,7 +446,7 @@ void keyPressed() {
     color1 = color(255,255,0);
     color2 = color(0,255,0);
     color3 = color(255, 28, 240);
-  } else if (key == 'b') {
+  } else if (key == 'g') {
     color1 = color(255);
     color2 = color(28, 202, 237);
     color3 = color(255, 28, 240);
@@ -452,6 +458,22 @@ void keyPressed() {
     color1 = color(255, 151, 23);
     color2 = color(255, 151, 23);
     color3 = color(255, 151, 23);
+  } else if (key == 'm') {
+    backgroundColor = color(111, 13, 209);
+    crackColor = color(255);
+  } else if (key == 'n') {
+    backgroundColor = color(255, 151, 23);
+  } else if (key == 'b') {
+    backgroundColor = color(0,0,0);
+  } else if (key == 'v') {
+    backgroundColor = color(255);
+    crackColor = color(255, 151, 23);
+  } else if (key == 'x') {
+    backgroundColor = color(255, 151, 23);
+    crackColor = color(0);
+  } else if (key == 'z') {
+    backgroundColor = color(255);
+    crackColor = color(0);
   }
 }
 
@@ -496,7 +518,7 @@ void drawCrack1() {
 }
 
 void drawCrackTop() {
-  fill(0);
+  fill(225);
   rect(34,2,1,1);
   allCracks.add(new Pixel(34,2,1,1));
   rect(34,3,1,1);
@@ -542,7 +564,7 @@ void drawCrackTop() {
 }
 
 void drawCrack2() {
-  fill(0);
+  fill(225);
   rect(32,11,1,1);
   allCracks.add(new Pixel(32,10,1,1));
   rect(32,11,1,1);
@@ -568,7 +590,7 @@ void drawCrack2() {
 }
 
 void drawCrack3() {
-  fill(0);
+  fill(225);
   
   rect(31,20,1,1);
   allCracks.add(new Pixel(31,20,1,1));
@@ -587,7 +609,7 @@ void drawCrack3() {
 }
 
 void drawCrack4() {
-  fill(0);
+  fill(225);
   rect(28,17,1,1);
   allCracks.add(new Pixel(28,17,1,1));
   rect(28,16,1,1);
@@ -607,7 +629,7 @@ void drawCrack4() {
 }
 
 void drawCrack5() {
-  fill(0);
+  fill(225);
   //rect(26,21,1,1);
   //allCracks.add(new Pixel(26,21,1,1));
   //rect(27,20,1,1);
@@ -651,7 +673,7 @@ void drawCrack5() {
 }
 
 void drawCrack6() {
-  fill(0);
+  fill(225);
   rect(24,16,1,1);
   allCracks.add(new Pixel(24,16,1,1));
   rect(24,17,1,1);
@@ -679,7 +701,7 @@ void drawCrack6() {
 }
 
 void drawCrack7() {
-  fill(0);
+  fill(225);
   rect(22,2,1,1);
   allCracks.add(new Pixel(22,2,1,1));
   rect(22,3,1,1);
@@ -689,7 +711,7 @@ void drawCrack7() {
 }
 
 void drawCrack8() {
-  fill(0);
+  fill(225);
   rect(26,4,1,1);
   allCracks.add(new Pixel(26,4,1,1));
   rect(25,3,1,1);
@@ -707,7 +729,7 @@ void drawCrack8() {
 }
 
 void drawCrack9() {
-  fill(0);
+  fill(225);
   rect(25,8,1,1);
   allCracks.add(new Pixel(25,8,1,1));
   rect(26,9,1,1);
@@ -727,7 +749,7 @@ void drawCrack9() {
 
 
 void drawCrack10() {
-  fill(0);
+  fill(225);
   rect(39,3,1,1);
   allCracks.add(new Pixel(39,3,1,1));
   rect(38,4,1,1);
