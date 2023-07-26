@@ -83,13 +83,15 @@ void drawPharus()
     {
       //noStroke();
       //fill(225);
-      fill(250, 110, 110);
+      fill(0,255,0);
       
       int x = GetX(trackID);/// aec.getScaleX();
       int y = GetY(trackID);// / aec.getScaleY();
       x = int(map(x,0,1200,30,40));
       y = int(map(y,0,400,0,28));
       rect(x, y, 1 , 1);
+      rect(x+1, y, 1 , 1);
+      rect(x, y+1, 1 , 1);
   
 
       if (x == trigger1.x && y == trigger1.y) {
@@ -104,10 +106,12 @@ void drawPharus()
         drawCrack2();
         //sub side
         drawCrack6();
+        isActivated2 = true;
       } else if (x == trigger3.x && y == trigger3.y) {
         drawCrack3();
         //sub side
         drawCrack8();
+        isActivated3 = true;
       } else if (x == trigger4.x && y == trigger4.y) {
         drawCrack4();
       } else if (x == trigger5.x && y == trigger5.y) {
@@ -126,6 +130,7 @@ void drawPharus()
         //sub side
         drawCrack4();
         drawCrack7();
+        isActivated10 = true;
       }            
       drawCrack5();
      // fill(255);

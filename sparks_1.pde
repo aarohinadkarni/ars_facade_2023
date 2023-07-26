@@ -233,11 +233,11 @@ void draw() { //<>//
   fill(color1);
   // crack 1
   if (mouseX/aec.getScaleX() == trigger1.x && mouseY/aec.getScaleY() == trigger1.y) {
-    isActivated1 = true;
     drawCrackTop(); //<>//
     crackFill1 = crackColor;
     //drawCrack1();
     drawCrack9();
+    isActivated1 = true;
     isActivated5 = true;
   } else if (mouseX/aec.getScaleX() == trigger2.x && mouseY/aec.getScaleY() == trigger2.y) {
     drawCrack2();
@@ -554,52 +554,12 @@ void keyPressed() {
     backgroundColor = color(255);
     crackColor = color(255, 151, 23);
   } else if (key == 'x') {
-    backgroundColor = color(255, 151, 23);
+    backgroundColor = color(100, 51, 0);
     crackColor = color(0);
   } else if (key == 'z') {
     backgroundColor = color(255);
     crackColor = color(0);
   }
-}
-
-void drawCrack1() {
-  int step = 1;
-  rect(36,8+1,1,step);
-  rect(34,9+1,1,step);
-  rect(35,9+1,1,step);
-  rect(34,10+1,1,step);
-  rect(35,11+1,1,step);
-  rect(36,11+1,1,step);
-  rect(33,11+1,1,step);
-  rect(32,12+1,1,step);
-  rect(31, 11+1, 1, step);
-  rect(30, 12+1, 1, step);
-  rect(29, 13+1, 1, step);
-  rect(28, 13+1, 1, step);
-  rect(28, 14+1, 1, step);
-  rect(27, 14+1, 1, step);
-  rect(26, 14+1, 1, step);
-  rect(25, 14+1, 1, step);
-  rect(24, 14+1, 1, step);
-  rect(24, 13+1, 1, step);
-  rect(23, 12+1, 1, step);
-  rect(22, 13+1, 1, step);
-  rect(21, 14+1, 1, step);
-  
-  rect(26,15+1,1,step);
-  rect(27,16+1,1,step);
-  rect(28,16+1,1,step);
-  rect(27,17+1,1,step);
-  rect(26,18+1,1,step);
-  rect(27,19+1,1,step);
-  rect(29,17+1,1,step);
-  rect(30,18+1,1,step);
-  rect(31,17+1,1,step);
-  rect(32,16+1,1,step);
-  rect(32,18+1,1,step);
-  rect(32,19+1,1,step);
-  rect(33,20+1,1,step);
-  rect(33,16+1,1,step);
 }
 
 void drawCrackTop() {
@@ -854,7 +814,9 @@ void drawCrack10() {
 void drawHuman() {
    
   fill(250, 110, 110);
+  rect(mouseX/aec.getScaleX()+1, mouseY/aec.getScaleY(), 1, 1);
   rect(mouseX/aec.getScaleX(), mouseY/aec.getScaleY(), 1, 1);
+  rect(mouseX/aec.getScaleX(), mouseY/aec.getScaleY()+1, 1, 1);
 }
 
 class Trigger {
