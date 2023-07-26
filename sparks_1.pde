@@ -51,9 +51,19 @@ int startTime5 =0;
 int counter5 = 0;
 ArrayList<Pixel> crack5Pixels = new ArrayList<Pixel>();
 
+boolean isDrawing10;
+boolean isActivated10;
+int startTime10 =0;
+int counter10 = 0;
+ArrayList<Pixel> crack10Pixels = new ArrayList<Pixel>();
+
 float pulse = 0;
 float speed =40;
- 
+
+float crackFill1;
+float crackFill2;
+float crackFill3;
+float crackFill10;
 
 void setup() {
   frameRate(25);
@@ -109,7 +119,7 @@ void setup() {
   backgroundColor = color(255, 151, 23);
 }
 
-void draw() {
+void draw() { //<>//
   aec.beginDraw();
 
   
@@ -148,42 +158,117 @@ void draw() {
   //  rect(x2, y, 1, step);
   //}
   
-  fill(pulse);
-  rect(34,2,1,1);
+  if (isActivated1){
+    fill(225);
+  }
+  else {
+    fill(crackFill1);
+    println("crack fill: " + crackFill1);
+  }
+  // trigger 1
+  rect(34,3,1,1);
+  
+  if (isActivated2){
+    fill(225);
+  }
+  else {
+    fill(crackFill2);
+    println("crack fill: " + crackFill2);
+  }
+  // trigger 2
+  rect(32,10,1,1);
+  
+  if (isActivated3){
+    fill(225);
+  }
+  else {
+    fill(crackFill3);
+    println("crack fill: " + crackFill3);
+  }
+  // trigger 3
+  rect(31,20,1,1);
+  
+  if (isActivated10){
+    fill(225);
+  }
+  else {
+    fill(crackFill10);
+    println("crack fill: " + crackFill10);
+  }
+  // trigger 10
+  rect(39,3,1,1);
+  
   pulse = pulse+speed;
 
-  // resets the pulse back to 0 to continue to cycle through
-  if (pulse>=360 || pulse<=0) {
+  // the pulse anytime it reaches max/min to continue to cycle through
+  if (pulse>=255 || pulse<=0) {
     speed=speed*-1;
   }
+  
+  // crack if
+  if (crackFill1 == crackColor) {
+    crackFill1 = crackColor;
+  } else {
+    crackFill1 = pulse; //<>//
+  }
+  if (crackFill2 == crackColor) {
+    crackFill2 = crackColor;
+  } else {
+    crackFill2 = pulse;
+  }
+  if (crackFill3 == crackColor) {
+    crackFill3 = crackColor;
+  } else {
+    crackFill3 = pulse;
+  }
+  if (crackFill10 == crackColor) {
+    crackFill10 = crackColor;
+  } else {
+    crackFill10 = pulse;
+  }
+  
   
   println(mouseX/aec.getScaleX(),mouseY/aec.getScaleY());
   drawHuman();
   fill(color1);
   // crack 1
   if (mouseX/aec.getScaleX() == trigger1.x && mouseY/aec.getScaleY() == trigger1.y) {
-    //isActivated1 = true;
-    drawCrackTop();
+    isActivated1 = true;
+    drawCrackTop(); //<>//
+    crackFill1 = crackColor;
     //drawCrack1();
+    drawCrack9();
+    isActivated5 = true;
   } else if (mouseX/aec.getScaleX() == trigger2.x && mouseY/aec.getScaleY() == trigger2.y) {
     drawCrack2();
+    //sub side
+    drawCrack6();
+    isActivated2 = true;
   } else if (mouseX/aec.getScaleX() == trigger3.x && mouseY/aec.getScaleY() == trigger3.y) {
     drawCrack3();
-  } else if (mouseX/aec.getScaleX() == trigger4.x && mouseY/aec.getScaleY() == trigger4.y) {
-    drawCrack4();
-  } else if (mouseX/aec.getScaleX() == trigger5.x && mouseY/aec.getScaleY() == trigger5.y) {
-    isActivated5 = true;
-    //drawCrack5();
-  } else if (mouseX/aec.getScaleX() == trigger6.x && mouseY/aec.getScaleY() == trigger6.y) {
-    drawCrack6();
-  } else if (mouseX/aec.getScaleX() == trigger7.x && mouseY/aec.getScaleY() == trigger7.y) {
-    drawCrack7();
-  } else if (mouseX/aec.getScaleX() == trigger8.x && mouseY/aec.getScaleY() == trigger8.y) {
+    //sub side
     drawCrack8();
-  }  else if (mouseX/aec.getScaleX() == trigger9.x && mouseY/aec.getScaleY() == trigger9.y) {
-    drawCrack9();
+    isActivated3 = true;
+  //} else if (mouseX/aec.getScaleX() == trigger4.x && mouseY/aec.getScaleY() == trigger4.y) {
+  //  drawCrack4();
+  //  //sub side
+  //  drawCrack7();
+  //} else if (mouseX/aec.getScaleX() == trigger5.x && mouseY/aec.getScaleY() == trigger5.y) {
+  //  isActivated5 = true;
+  //} else if (mouseX/aec.getScaleX() == trigger6.x && mouseY/aec.getScaleY() == trigger6.y) {
+  //  drawCrack6();
+  //} else if (mouseX/aec.getScaleX() == trigger7.x && mouseY/aec.getScaleY() == trigger7.y) {
+  //  drawCrack7();
+  //} else if (mouseX/aec.getScaleX() == trigger8.x && mouseY/aec.getScaleY() == trigger8.y) {
+  //  drawCrack8();
+  //}  else if (mouseX/aec.getScaleX() == trigger9.x && mouseY/aec.getScaleY() == trigger9.y) {
+  //  drawCrack9();
   } else if (mouseX/aec.getScaleX() == trigger10.x && mouseY/aec.getScaleY() == trigger10.y) {
     drawCrack10();
+    //sub side
+    drawCrack4();
+    drawCrack7();
+    isActivated10 = true;
   } 
   //drawCrackTop();
   drawCrack5();
@@ -768,16 +853,8 @@ void drawCrack10() {
 
 void drawHuman() {
    
-  fill(pulse);
+  fill(250, 110, 110);
   rect(mouseX/aec.getScaleX(), mouseY/aec.getScaleY(), 1, 1);
-  pulse = pulse+speed;
-  
-  // resets the pulse back to 0 to continue to cycle through
-  if (pulse>=360 || pulse<=0) {
-    speed=speed*-1;
-  }
-
-  
 }
 
 class Trigger {

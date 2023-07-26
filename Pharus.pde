@@ -83,26 +83,31 @@ void drawPharus()
     {
       //noStroke();
       //fill(225);
-      fill(pulse);
+      fill(250, 110, 110);
       
       int x = GetX(trackID);/// aec.getScaleX();
       int y = GetY(trackID);// / aec.getScaleY();
       x = int(map(x,0,1200,30,40));
       y = int(map(y,0,400,0,28));
       rect(x, y, 1 , 1);
-      pulse = pulse+speed;
   
-      // resets the pulse back to 0 to continue to cycle through
-      if (pulse>=360 || pulse<=0) {
-        speed=speed*-1;
-      }
+
       if (x == trigger1.x && y == trigger1.y) {
+        isActivated1 = true;
         drawCrackTop();
+        crackFill1 = crackColor;
+        //drawCrack1();
+        drawCrack9();
+        isActivated5 = true;
         //drawCrack1();
       } else if (x == trigger2.x && y == trigger2.y) {
         drawCrack2();
+        //sub side
+        drawCrack6();
       } else if (x == trigger3.x && y == trigger3.y) {
         drawCrack3();
+        //sub side
+        drawCrack8();
       } else if (x == trigger4.x && y == trigger4.y) {
         drawCrack4();
       } else if (x == trigger5.x && y == trigger5.y) {
@@ -118,6 +123,9 @@ void drawPharus()
         drawCrack9();
       } else if (x == trigger10.x && y == trigger10.y) {
         drawCrack10();
+        //sub side
+        drawCrack4();
+        drawCrack7();
       }            
       drawCrack5();
      // fill(255);
