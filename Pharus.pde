@@ -37,9 +37,9 @@ void setupPharus()
 
 void drawPharus()
 {
-  /*
+  
   // clear background with white
-  background(255);
+  //background(255);
 
   // set upper half of window (=wall projection) bluish
   noStroke();
@@ -47,7 +47,7 @@ void drawPharus()
   rect(0, 0, windowWidth, wallHeight);
   fill(150);
   text((int)frameRate + " FPS", width / 2, 10);
-  */
+  
   
   /*
   if (ShowPath)
@@ -81,8 +81,36 @@ void drawPharus()
     for (int trackID=0; trackID<GetNumTracks (); trackID++) 
     {
       //noStroke();
-      fill(255);
-      ellipse(GetX(trackID)/ aec.getScaleX(), GetY(trackID) / aec.getScaleY(), 3 , 4);
+      fill(225);
+      int x = GetX(trackID);/// aec.getScaleX();
+      int y = GetY(trackID);// / aec.getScaleY();
+      x = int(map(x,0,1200,30,40));
+      y = int(map(y,0,400,0,28));
+      rect(x, y, 1 , 1);
+      if (x == trigger1.x && y == trigger1.y) {
+        drawCrackTop();
+        //drawCrack1();
+      } else if (x == trigger2.x && y == trigger2.y) {
+        drawCrack2();
+      } else if (x == trigger3.x && y == trigger3.y) {
+        drawCrack3();
+      } else if (x == trigger4.x && y == trigger4.y) {
+        drawCrack4();
+      } else if (x == trigger5.x && y == trigger5.y) {
+        isActivated5 = true;
+        //drawCrack5();
+      } else if (x == trigger6.x && y == trigger6.y) {
+        drawCrack6();
+      } else if (x == trigger7.x && y == trigger7.y) {
+        drawCrack7();
+      } else if (x == trigger8.x && y == trigger8.y) {
+        drawCrack8();
+      }  else if (x == trigger9.x && y == trigger9.y) {
+        drawCrack9();
+      } else if (x == trigger10.x && y == trigger10.y) {
+        drawCrack10();
+      }            
+      drawCrack5();
      // fill(255);
      // text(GetCursorID(trackID), GetX(trackID), GetY(trackID));
     }

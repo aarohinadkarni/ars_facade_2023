@@ -17,6 +17,15 @@ Trigger trigger10;
 
 ArrayList<Pixel> allCracks = new ArrayList<Pixel>();
 
+boolean isDrawing5;
+boolean isActivated5;
+int startTime5 =0;
+
+int counter = 0;
+
+ArrayList<Pixel> crack5Pixels = new ArrayList<Pixel>();
+ 
+
 void setup() {
   frameRate(25);
   size(1200, 400);
@@ -29,7 +38,7 @@ void setup() {
   color3 = color(255);
   
   trigger1 = new Trigger(34,3);
-  trigger2 = new Trigger(32,9);
+  trigger2 = new Trigger(32,10);
   trigger3 = new Trigger(31,20);
   trigger4 = new Trigger(28,17);
   trigger5 = new Trigger(26,21);
@@ -39,12 +48,19 @@ void setup() {
   trigger9 = new Trigger(25,8);
   trigger10 = new Trigger(39,3);
   
+  //rect(26,21,1,1);
+  crack5Pixels.add(new Pixel(26,21,1,1));
+  //rect(27,20,1,1);
+  crack5Pixels.add(new Pixel(27,20,1,1));
+  //rect(27,22,1,1);
+  crack5Pixels.add(new Pixel(27,22,1,1));
+  
 }
 
 void draw() {
   aec.beginDraw();
 
-  drawPharus(); 
+  
   // DRAW CODE
   int x1 = mouseX / aec.getScaleX();
   int x2 = (frameCount / 3) % 75;
@@ -52,6 +68,7 @@ void draw() {
   background(0, 0,0);
   
   //println(x1);
+  rectMode(CENTER);
 
   noStroke();
 
@@ -68,13 +85,19 @@ void draw() {
     fill(0);
     rect(crack.x, crack.y, crack.size, crack.step);
   }
+  drawPharus(); 
+  
+  //int x = GetX(trackID);/// aec.getScaleX();
+  //    int y = GetY(trackID);// / aec.getScaleY();
+  //    x = int(map(x,0,1200,30,40));
+  //    y = int(map(y,0,400,0,28));
   //for (int y = 0; y < 30; y += step) {
   //  fill(255, 28, 240);
   //  rect(x2, y, 1, step);
   //}
   
   println(mouseX/aec.getScaleX(),mouseY/aec.getScaleY());
-  
+  drawHuman();
   fill(color1);
   // crack 1
   if (mouseX/aec.getScaleX() == trigger1.x && mouseY/aec.getScaleY() == trigger1.y) {
@@ -87,7 +110,8 @@ void draw() {
   } else if (mouseX/aec.getScaleX() == trigger4.x && mouseY/aec.getScaleY() == trigger4.y) {
     drawCrack4();
   } else if (mouseX/aec.getScaleX() == trigger5.x && mouseY/aec.getScaleY() == trigger5.y) {
-    drawCrack5();
+    isActivated5 = true;
+    //drawCrack5();
   } else if (mouseX/aec.getScaleX() == trigger6.x && mouseY/aec.getScaleY() == trigger6.y) {
     drawCrack6();
   } else if (mouseX/aec.getScaleX() == trigger7.x && mouseY/aec.getScaleY() == trigger7.y) {
@@ -99,6 +123,7 @@ void draw() {
   } else if (mouseX/aec.getScaleX() == trigger10.x && mouseY/aec.getScaleY() == trigger10.y) {
     drawCrack10();
   } 
+  drawCrack5();
   //rect(36,8+1,1,step);
   //rect(34,9+1,1,step);
   //rect(35,9+1,1,step);
@@ -347,6 +372,7 @@ void draw() {
   //rect (38,18,1,step);
   
   //drawCrack6();
+  
   aec.endDraw();
   aec.drawSides();
 }
@@ -464,6 +490,7 @@ void drawCrack2() {
 
 void drawCrack3() {
   fill(0);
+  
   rect(31,20,1,1);
   allCracks.add(new Pixel(31,20,1,1));
   rect(30,21,1,1);
@@ -502,12 +529,46 @@ void drawCrack4() {
 
 void drawCrack5() {
   fill(0);
-  rect(26,21,1,1);
-  allCracks.add(new Pixel(26,21,1,1));
-  rect(27,20,1,1);
-  allCracks.add(new Pixel(27,20,1,1));
-  rect(27,22,1,1);
-  allCracks.add(new Pixel(27,22,1,1));
+  //rect(26,21,1,1);
+  //allCracks.add(new Pixel(26,21,1,1));
+  //rect(27,20,1,1);
+  //allCracks.add(new Pixel(27,20,1,1));
+  //rect(27,22,1,1);
+  //allCracks.add(new Pixel(27,22,1,1));
+
+  if (isActivated5 && startTime5 == 0) {
+    isDrawing5 = true;
+    startTime5 = millis();
+    isActivated5 = false;
+  }
+  int rectNum = crack5Pixels.size()-1;
+  println("rectNum: " + rectNum);
+  println("counter:" + counter);
+  
+  if(isDrawing5) {
+      int currentTime = millis();
+      if ((currentTime-startTime5)>200) {
+            println("hit");
+            allCracks.add(crack5Pixels.get(counter));
+            counter++;
+            startTime5=millis();
+      }
+  }
+  if(counter > rectNum) {
+    isDrawing5 = false;
+}
+  /*
+  while (isDrawing5) {
+    allCracks.add(crack5Pixels.get(counter));
+    counter++;
+    if (counter > rectNum) {
+        isDrawing5 = false;
+    }
+  }
+  if (counter >= rectNum) {
+      isDrawing5 = false;
+  }*/
+  
 }
 
 void drawCrack6() {
@@ -602,6 +663,11 @@ void drawCrack10() {
   allCracks.add(new Pixel(38,8,1,1));
   rect(37,9,1,1);
   allCracks.add(new Pixel(37,9,1,1));
+}
+
+void drawHuman() {
+  fill(0,255,0);
+  rect(mouseX/aec.getScaleX(), mouseY/aec.getScaleY(), 1, 1);
 }
 
 class Trigger {
