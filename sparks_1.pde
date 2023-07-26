@@ -108,12 +108,65 @@ void setup() {
   //rect(30,10,1,1);
   crack1Pixels.add(new Pixel(30,10,1,1));
   
+  //rect(32,11,1,1);
+  crack2Pixels.add(new Pixel(32,10,1,1));
+  //rect(32,11,1,1);
+  crack2Pixels.add(new Pixel(32,11,1,1));
+  //rect(33,12,1,1);
+  crack2Pixels.add(new Pixel(33,12,1,1));
+  //rect(34,12,1,1);
+  crack2Pixels.add(new Pixel(34,12,1,1));
+  //rect(35,12,1,1);
+  crack2Pixels.add(new Pixel(35,12,1,1));
+  //rect(36,11,1,1);
+  crack2Pixels.add(new Pixel(36,11,1,1));
+  //rect(34,13,1,1);
+  crack2Pixels.add(new Pixel(34,13,1,1)) ;
+  //rect(35,14,1,1);
+  crack2Pixels.add(new Pixel(35,14,1,1));
+  //rect(36,14,1,1);
+  crack2Pixels.add(new Pixel(36,14,1,1));
+  //rect(37,15,1,1);
+  crack2Pixels.add(new Pixel(37,15,1,1));
+  //rect(38,15,1,1);
+  crack2Pixels.add(new Pixel(38,15,1,1));
+  
+  //rect(31,20,1,1);
+  crack3Pixels.add(new Pixel(31,20,1,1));
+  //rect(30,21,1,1);
+  crack3Pixels.add(new Pixel(30,21,1,1));
+  //rect(32,19,1,1);
+  crack3Pixels.add(new Pixel(32,19,1,1));
+  //rect(33,19,1,1);
+  crack3Pixels.add(new Pixel(33,19,1,1));
+  //rect(32,21,1,1);
+  crack3Pixels.add(new Pixel(32,21,1,1));
+  //rect(32,22,1,1);
+  crack3Pixels.add(new Pixel(32,22,1,1));
+  //rect(33,23,1,1);
+  crack3Pixels.add(new Pixel(33,23,1,1));
+  
   //rect(26,21,1,1);
-  crack5Pixels.add(new Pixel(26,21,1,1));
+  crack5Pixels.add(new Pixel(26+10,21,1,1));
   //rect(27,20,1,1);
-  crack5Pixels.add(new Pixel(27,20,1,1));
+  crack5Pixels.add(new Pixel(27+10,20,1,1));
   //rect(27,22,1,1);
-  crack5Pixels.add(new Pixel(27,22,1,1));  
+  crack5Pixels.add(new Pixel(27+10,22,1,1));  
+  
+  //rect(39,3,1,1);
+  crack10Pixels.add(new Pixel(39,3,1,1));
+  //rect(38,4,1,1);
+  crack10Pixels.add(new Pixel(38,4,1,1));
+  //rect(38,5,1,1);
+  crack10Pixels.add(new Pixel(38,5,1,1));
+  //rect(37,6,1,1);
+  crack10Pixels.add(new Pixel(37,6,1,1));
+  //rect(38,7,1,1);
+  crack10Pixels.add(new Pixel(38,7,1,1));
+  //rect(38,8,1,1);
+  crack10Pixels.add(new Pixel(38,8,1,1));
+  //rect(37,9,1,1);
+  crack10Pixels.add(new Pixel(37,9,1,1));
   
   crackColor = color(225);
   backgroundColor = color(255, 151, 23);
@@ -233,19 +286,21 @@ void draw() { //<>//
   fill(color1);
   // crack 1
   if (mouseX/aec.getScaleX() == trigger1.x && mouseY/aec.getScaleY() == trigger1.y) {
-    drawCrackTop(); //<>//
+    //drawCrackTop(); //<>//
+    drawCrackTop2();
     crackFill1 = crackColor;
-    //drawCrack1();
     drawCrack9();
     isActivated1 = true;
     isActivated5 = true;
   } else if (mouseX/aec.getScaleX() == trigger2.x && mouseY/aec.getScaleY() == trigger2.y) {
-    drawCrack2();
+    //drawCrack2();
     //sub side
     drawCrack6();
+    drawCrack2_();
     isActivated2 = true;
   } else if (mouseX/aec.getScaleX() == trigger3.x && mouseY/aec.getScaleY() == trigger3.y) {
-    drawCrack3();
+    //drawCrack3();
+    drawCrack3_();
     //sub side
     drawCrack8();
     isActivated3 = true;
@@ -264,14 +319,19 @@ void draw() { //<>//
   //}  else if (mouseX/aec.getScaleX() == trigger9.x && mouseY/aec.getScaleY() == trigger9.y) {
   //  drawCrack9();
   } else if (mouseX/aec.getScaleX() == trigger10.x && mouseY/aec.getScaleY() == trigger10.y) {
-    drawCrack10();
+    //drawCrack10();
     //sub side
     drawCrack4();
+    drawCrack4_();
     drawCrack7();
+    drawCrack10_();
     isActivated10 = true;
   } 
-  //drawCrackTop();
+  drawCrackTop();
+  drawCrack2();
+  drawCrack3();
   drawCrack5();
+  drawCrack10();
   //rect(36,8+1,1,step);
   //rect(34,9+1,1,step);
   //rect(35,9+1,1,step);
@@ -520,7 +580,7 @@ void draw() { //<>//
   //rect (38,18,1,step);
   
   //drawCrack6();
-  
+  //drawCrackTop2();
   aec.endDraw();
   aec.drawSides();
 }
@@ -544,18 +604,18 @@ void keyPressed() {
     color2 = color(255, 151, 23);
     color3 = color(255, 151, 23);
   } else if (key == 'm') {
-    backgroundColor = color(111, 13, 209);
-    crackColor = color(255);
+    backgroundColor = color(0);
+    crackColor = color(111, 13, 209);
   } else if (key == 'n') {
     backgroundColor = color(255, 151, 23);
   } else if (key == 'b') {
     backgroundColor = color(0,0,0);
   } else if (key == 'v') {
-    backgroundColor = color(255);
-    crackColor = color(255, 151, 23);
+    backgroundColor = color(0);
+    crackColor = color(100, 51, 0);
   } else if (key == 'x') {
     backgroundColor = color(100, 51, 0);
-    crackColor = color(0);
+    crackColor = color(255);
   } else if (key == 'z') {
     backgroundColor = color(255);
     crackColor = color(0);
@@ -564,93 +624,209 @@ void keyPressed() {
 
 void drawCrackTop() {
   fill(225);
-  rect(34,2,1,1);
-  allCracks.add(new Pixel(34,2,1,1));
-  rect(34,3,1,1);
-  allCracks.add(new Pixel(34,3,1,1));
-  rect(33,4,1,1);
-  allCracks.add(new Pixel(33,4,1,1));
-  rect(32,5,1,1);
-  allCracks.add(new Pixel(32,5,1,1));
-  rect(33,6,1,1);
-  allCracks.add(new Pixel(33,6,1,1));
-  rect(34,7,1,1);
-  allCracks.add(new Pixel(34,7,1,1));
-  rect(32,7,1,1);
-  allCracks.add(new Pixel(32,7,1,1));
-  rect(31,8,1,1);
-  allCracks.add(new Pixel(31,8,1,1));
-  rect(31,9,1,1);
-  allCracks.add(new Pixel(31,9,1,1));
-  rect(30,10,1,1);
-  allCracks.add(new Pixel(30,10,1,1));
+  //rect(34,2,1,1);
+  //allCracks.add(new Pixel(34,2,1,1));
+  //rect(34,3,1,1);
+  //allCracks.add(new Pixel(34,3,1,1));
+  //rect(33,4,1,1);
+  //allCracks.add(new Pixel(33,4,1,1));
+  //rect(32,5,1,1);
+  //allCracks.add(new Pixel(32,5,1,1));
+  //rect(33,6,1,1);
+  //allCracks.add(new Pixel(33,6,1,1));
+  //rect(34,7,1,1);
+  //allCracks.add(new Pixel(34,7,1,1));
+  //rect(32,7,1,1);
+  //allCracks.add(new Pixel(32,7,1,1));
+  //rect(31,8,1,1);
+  //allCracks.add(new Pixel(31,8,1,1));
+  //rect(31,9,1,1);
+  //allCracks.add(new Pixel(31,9,1,1));
+  //rect(30,10,1,1);
+  //allCracks.add(new Pixel(30,10,1,1));
   
-  //if (isActivated1 && startTime1 == 0) {
-  //  isDrawing1 = true;
-  //  startTime1 = millis();
-  //  isActivated1 = false;
-  //}
-  //int rectNum = crack1Pixels.size()-1;
-  //println("rectNum: " + rectNum);
-  //println("counter:" + counter5);
+  if (isActivated1 && startTime1 == 0) {
+    isDrawing1 = true;
+    startTime1 = millis();
+    isActivated1 = false;
+  }
+  int rectNum = crack1Pixels.size()-1;
+  println("rectNum: " + rectNum);
+  println("counter:" + counter5);
   
-  //if(isDrawing5) {
-  //    int currentTime = millis();
-  //    if ((currentTime-startTime1)>200) {
-  //          println("hit");
-  //          allCracks.add(crack5Pixels.get(counter5));
-  //          counter1++;
-  //          startTime1=millis();
-  //    }
-  //}
-  //if(counter1 > rectNum) {
-  //  isDrawing1 = false;
-  //}
+  if(isDrawing1) {
+      int currentTime = millis();
+      if ((currentTime-startTime1)>200) {
+            println("hit");
+            allCracks.add(crack1Pixels.get(counter1));
+            counter1++;
+            startTime1=millis();
+      }
+  }
+  if(counter1 > rectNum) {
+    isDrawing1 = false;
+  }
+}
+
+void drawCrackTop2() {
+  fill(225);
+  rect(34-19,1,1,1);
+  allCracks.add(new Pixel(34-19,1,1,1));
+  rect(34-19,-2+2,1,1);
+  allCracks.add(new Pixel(34-19,0,1,1));
+  rect(34-20,2-2+2,1,1);
+  allCracks.add(new Pixel(34-20,2,1,1));
+  rect(34-20,3,1,1);
+  allCracks.add(new Pixel(34-20,3,1,1));
+  rect(33-20,4,1,1);
+  allCracks.add(new Pixel(33-20,4,1,1));
+  rect(32-20,5,1,1);
+  allCracks.add(new Pixel(32-20,5,1,1));
+  rect(33-20,6,1,1);
+  allCracks.add(new Pixel(33-20,6,1,1));
+  rect(34-20,7,1,1);
+  allCracks.add(new Pixel(34-20,7,1,1));
+  rect(32-20,7,1,1);
+  allCracks.add(new Pixel(32-20,7,1,1));
+  rect(31-20,8,1,1);
+  allCracks.add(new Pixel(31-20,8,1,1));
+  rect(31-20,9,1,1);
+  allCracks.add(new Pixel(31-20,9,1,1));
+  rect(30-20,10,1,1);
+  allCracks.add(new Pixel(30-20,10,1,1));
 }
 
 void drawCrack2() {
   fill(225);
-  rect(32,11,1,1);
-  allCracks.add(new Pixel(32,10,1,1));
-  rect(32,11,1,1);
-  allCracks.add(new Pixel(32,11,1,1));
-  rect(33,12,1,1);
-  allCracks.add(new Pixel(33,12,1,1));
-  rect(34,12,1,1);
-  allCracks.add(new Pixel(34,12,1,1));
-  rect(35,12,1,1);
-  allCracks.add(new Pixel(35,12,1,1));
-  rect(36,11,1,1);
-  allCracks.add(new Pixel(36,11,1,1));
-  rect(34,13,1,1);
-  allCracks.add(new Pixel(34,13,1,1)) ;
-  rect(35,14,1,1);
-  allCracks.add(new Pixel(35,14,1,1));
-  rect(36,14,1,1);
-  allCracks.add(new Pixel(36,14,1,1));
-  rect(37,15,1,1);
-  allCracks.add(new Pixel(37,15,1,1));
-  rect(38,15,1,1);
-  allCracks.add(new Pixel(38,15,1,1));
+  //rect(32,11,1,1);
+  //allCracks.add(new Pixel(32,10,1,1));
+  //rect(32,11,1,1);
+  //allCracks.add(new Pixel(32,11,1,1));
+  //rect(33,12,1,1);
+  //allCracks.add(new Pixel(33,12,1,1));
+  //rect(34,12,1,1);
+  //allCracks.add(new Pixel(34,12,1,1));
+  //rect(35,12,1,1);
+  //allCracks.add(new Pixel(35,12,1,1));
+  //rect(36,11,1,1);
+  //allCracks.add(new Pixel(36,11,1,1));
+  //rect(34,13,1,1);
+  //allCracks.add(new Pixel(34,13,1,1)) ;
+  //rect(35,14,1,1);
+  //allCracks.add(new Pixel(35,14,1,1));
+  //rect(36,14,1,1);
+  //allCracks.add(new Pixel(36,14,1,1));
+  //rect(37,15,1,1);
+  //allCracks.add(new Pixel(37,15,1,1));
+  //rect(38,15,1,1);
+  //allCracks.add(new Pixel(38,15,1,1));
+  
+  if (isActivated2 && startTime2 == 0) {
+    isDrawing2 = true;
+    startTime2 = millis();
+    isActivated2 = false;
+  }
+  int rectNum = crack2Pixels.size()-1;
+  println("rectNum: " + rectNum);
+  println("counter:" + counter2);
+  
+  if(isDrawing2) {
+      int currentTime = millis();
+      if ((currentTime-startTime2)>200) {
+            println("hit");
+            allCracks.add(crack2Pixels.get(counter2));
+            counter2++;
+            startTime2=millis();
+      }
+  }
+  if(counter2 > rectNum) {
+    isDrawing2 = false;
+  }
+}
+
+void drawCrack2_() {
+  fill(225);
+  rect(32-20,11,1,1);
+  allCracks.add(new Pixel(32-20,10,1,1));
+  rect(32-20,11,1,1);
+  allCracks.add(new Pixel(32-20,11,1,1));
+  rect(33-20,12,1,1);
+  allCracks.add(new Pixel(33-20,12,1,1));
+  rect(34-20,12,1,1);
+  allCracks.add(new Pixel(34-20,12,1,1));
+  rect(35-20,12,1,1);
+  allCracks.add(new Pixel(35-20,12,1,1));
+  rect(36-20,11,1,1);
+  allCracks.add(new Pixel(36-20,11,1,1));
+  rect(34-20,13,1,1);
+  allCracks.add(new Pixel(34-20,13,1,1)) ;
+  rect(35-20,14,1,1);
+  allCracks.add(new Pixel(35-20,14,1,1));
+  rect(36-20,14,1,1);
+  allCracks.add(new Pixel(36-20,14,1,1));
+  rect(37-20,15,1,1);
+  allCracks.add(new Pixel(37-20,15,1,1));
+  rect(38-20,15,1,1);
+  allCracks.add(new Pixel(38-20,15,1,1));
 }
 
 void drawCrack3() {
   fill(225);
   
-  rect(31,20,1,1);
-  allCracks.add(new Pixel(31,20,1,1));
-  rect(30,21,1,1);
-  allCracks.add(new Pixel(30,21,1,1));
-  rect(32,19,1,1);
-  allCracks.add(new Pixel(32,19,1,1));
-  rect(33,19,1,1);
-  allCracks.add(new Pixel(33,19,1,1));
-  rect(32,21,1,1);
-  allCracks.add(new Pixel(32,21,1,1));
-  rect(32,22,1,1);
-  allCracks.add(new Pixel(32,22,1,1));
-  rect(33,23,1,1);
-  allCracks.add(new Pixel(33,23,1,1));
+  //rect(31,20,1,1);
+  //allCracks.add(new Pixel(31,20,1,1));
+  //rect(30,21,1,1);
+  //allCracks.add(new Pixel(30,21,1,1));
+  //rect(32,19,1,1);
+  //allCracks.add(new Pixel(32,19,1,1));
+  //rect(33,19,1,1);
+  //allCracks.add(new Pixel(33,19,1,1));
+  //rect(32,21,1,1);
+  //allCracks.add(new Pixel(32,21,1,1));
+  //rect(32,22,1,1);
+  //allCracks.add(new Pixel(32,22,1,1));
+  //rect(33,23,1,1);
+  //allCracks.add(new Pixel(33,23,1,1));
+  if (isActivated3 && startTime3 == 0) {
+    isDrawing3 = true;
+    startTime3 = millis();
+    isActivated3 = false;
+  }
+  int rectNum = crack3Pixels.size()-1;
+  println("rectNum: " + rectNum);
+  println("counter:" + counter3);
+  
+  if(isDrawing3) {
+      int currentTime = millis();
+      if ((currentTime-startTime3)>200) {
+            println("hit");
+            allCracks.add(crack3Pixels.get(counter3));
+            counter3++;
+            startTime3=millis();
+      }
+  }
+  if(counter3 > rectNum) {
+    isDrawing3 = false;
+  }
+}
+
+void drawCrack3_() {
+  fill(225);
+  
+  rect(31-20,20,1,1);
+  allCracks.add(new Pixel(31-20,20,1,1));
+  rect(30-20,21,1,1);
+  allCracks.add(new Pixel(30-20,21,1,1));
+  rect(32-20,19,1,1);
+  allCracks.add(new Pixel(32-20,19,1,1));
+  rect(33-20,19,1,1);
+  allCracks.add(new Pixel(33-20,19,1,1));
+  rect(32-20,21,1,1);
+  allCracks.add(new Pixel(32-20,21,1,1));
+  rect(32-20,22,1,1);
+  allCracks.add(new Pixel(32-20,22,1,1));
+  rect(33-20,23,1,1);
+  allCracks.add(new Pixel(33-20,23,1,1));
 }
 
 void drawCrack4() {
@@ -671,6 +847,26 @@ void drawCrack4() {
   allCracks.add(new Pixel(33,14,1,1));
   rect(34,15,1,1);
   allCracks.add(new Pixel(34,15,1,1));
+}
+
+void drawCrack4_() {
+  fill(225);
+  rect(28-20,17,1,1);
+  allCracks.add(new Pixel(28-20,17,1,1));
+  rect(28-20,16,1,1);
+  allCracks.add(new Pixel(28-20,16,1,1));
+  rect(29-20,16,1,1);
+  allCracks.add(new Pixel(29-20,16,1,1));
+  rect(30-20,15,1,1);
+  allCracks.add(new Pixel(30-20,15,1,1));
+  rect(31-20,14,1,1);
+  allCracks.add(new Pixel(31-20,14,1,1));
+  rect(32-20,15,1,1);
+  allCracks.add(new Pixel(32-20,15,1,1));
+  rect(33-20,14,1,1);
+  allCracks.add(new Pixel(33-20,14,1,1));
+  rect(34-20,15,1,1);
+  allCracks.add(new Pixel(34-20,15,1,1));
 }
 
 void drawCrack5() {
@@ -795,26 +991,65 @@ void drawCrack9() {
 
 void drawCrack10() {
   fill(225);
-  rect(39,3,1,1);
-  allCracks.add(new Pixel(39,3,1,1));
-  rect(38,4,1,1);
-  allCracks.add(new Pixel(38,4,1,1));
-  rect(38,5,1,1);
-  allCracks.add(new Pixel(38,5,1,1));
-  rect(37,6,1,1);
-  allCracks.add(new Pixel(37,6,1,1));
-  rect(38,7,1,1);
-  allCracks.add(new Pixel(38,7,1,1));
-  rect(38,8,1,1);
-  allCracks.add(new Pixel(38,8,1,1));
-  rect(37,9,1,1);
-  allCracks.add(new Pixel(37,9,1,1));
+  //rect(39,3,1,1);
+  //allCracks.add(new Pixel(39,3,1,1));
+  //rect(38,4,1,1);
+  //allCracks.add(new Pixel(38,4,1,1));
+  //rect(38,5,1,1);
+  //allCracks.add(new Pixel(38,5,1,1));
+  //rect(37,6,1,1);
+  //allCracks.add(new Pixel(37,6,1,1));
+  //rect(38,7,1,1);
+  //allCracks.add(new Pixel(38,7,1,1));
+  //rect(38,8,1,1);
+  //allCracks.add(new Pixel(38,8,1,1));
+  //rect(37,9,1,1);
+  //allCracks.add(new Pixel(37,9,1,1));
+  
+  if (isActivated10 && startTime10 == 0) {
+    isDrawing10 = true;
+    startTime10 = millis();
+    isActivated10 = false;
+  }
+  int rectNum = crack10Pixels.size()-1;
+  println("rectNum: " + rectNum);
+  println("counter:" + counter10);
+  
+  if(isDrawing10) {
+      int currentTime = millis();
+      if ((currentTime-startTime10)>200) {
+            println("hit");
+            allCracks.add(crack10Pixels.get(counter10));
+            counter10++;
+            startTime10=millis();
+      }
+  }
+  if(counter10 > rectNum) {
+    isDrawing10 = false;
+  }
+}
+
+void drawCrack10_() {
+  fill(225);
+  rect(39-20,3,1,1);
+  allCracks.add(new Pixel(39-20,3,1,1));
+  rect(38-20,4,1,1);
+  allCracks.add(new Pixel(38-20,4,1,1));
+  rect(38-20,5,1,1);
+  allCracks.add(new Pixel(38-20,5,1,1));
+  rect(37-20,6,1,1);
+  allCracks.add(new Pixel(37-20,6,1,1));
+  rect(38-20,7,1,1);
+  allCracks.add(new Pixel(38-20,7,1,1));
+  rect(38-20,8,1,1);
+  allCracks.add(new Pixel(38-20,8,1,1));
+  rect(37-20,9,1,1);
+  allCracks.add(new Pixel(37-20,9,1,1));
 }
 
 void drawHuman() {
    
-  fill(250, 110, 110);
-  rect(mouseX/aec.getScaleX()+1, mouseY/aec.getScaleY(), 1, 1);
+  fill(255, 255, 0);
   rect(mouseX/aec.getScaleX(), mouseY/aec.getScaleY(), 1, 1);
   rect(mouseX/aec.getScaleX(), mouseY/aec.getScaleY()+1, 1, 1);
 }
@@ -833,7 +1068,7 @@ class Pixel {
   int x;
   int y;
   int size;
-  int step;
+  int step; 
   
   Pixel(int x, int y, int size, int step) {
     this.x = x;

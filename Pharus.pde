@@ -83,15 +83,18 @@ void drawPharus()
     {
       //noStroke();
       //fill(225);
-      fill(0,255,0);
+      fill(255,255,0);
       
       int x = GetX(trackID);/// aec.getScaleX();
       int y = GetY(trackID);// / aec.getScaleY();
       x = int(map(x,0,1200,30,40));
       y = int(map(y,0,400,0,28));
       rect(x, y, 1 , 1);
-      rect(x+1, y, 1 , 1);
       rect(x, y+1, 1 , 1);
+      //rect(x+1, y, 1 , 1);
+      //rect(x, y+1, 1 , 1);
+      //rect(x, y-1, 1 , 1);
+      //rect(x-1, y, 1 , 1);
   
 
       if (x == trigger1.x && y == trigger1.y) {

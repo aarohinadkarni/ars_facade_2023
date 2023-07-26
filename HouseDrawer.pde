@@ -47,8 +47,4 @@ class HouseDrawer {
       }
     }
   }
-  
-  public void drawSpark1() {
-    
-  }
 }
