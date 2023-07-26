@@ -13,6 +13,7 @@ boolean ShowFeet = true;
 
 int show = 0xffff;
 
+
 /*
 void settings()
 {
@@ -81,12 +82,20 @@ void drawPharus()
     for (int trackID=0; trackID<GetNumTracks (); trackID++) 
     {
       //noStroke();
-      fill(225);
+      //fill(225);
+      fill(pulse);
+      
       int x = GetX(trackID);/// aec.getScaleX();
       int y = GetY(trackID);// / aec.getScaleY();
       x = int(map(x,0,1200,30,40));
       y = int(map(y,0,400,0,28));
       rect(x, y, 1 , 1);
+      pulse = pulse+speed;
+  
+      // resets the pulse back to 0 to continue to cycle through
+      if (pulse>=360 || pulse<=0) {
+        speed=speed*-1;
+      }
       if (x == trigger1.x && y == trigger1.y) {
         drawCrackTop();
         //drawCrack1();
