@@ -98,25 +98,43 @@ void drawPharus()
   
 
       if (x == trigger1.x && y == trigger1.y) {
-        isActivated1 = true;
-        drawCrackTop();
+        //isActivated1 = true;
+        //drawCrackTop();
+        //crackFill1 = crackColor;
+        ////drawCrack1();
+        //drawCrack9();
+        //isActivated5 = true;
         crackFill1 = crackColor;
-        //drawCrack1();
-        drawCrack9();
+        //drawCrack9();
+        isActivated1 = true;
+        isActivated1_ = true;
         isActivated5 = true;
+        isActivated5_ = true;
+        isActivated9 = true;
+        isActivated9_ = true;
         //drawCrack1();
       } else if (x == trigger2.x && y == trigger2.y) {
-        drawCrack2();
-        //sub side
-        drawCrack6();
+        //drawCrack2();
+        ////sub side
+        //drawCrack6();
+        //isActivated2 = true;
         isActivated2 = true;
+        isActivated2_ = true;
+        isActivated6 = true;
+        isActivated6_ = true;
       } else if (x == trigger3.x && y == trigger3.y) {
-        drawCrack3();
-        //sub side
-        drawCrack8();
+        //drawCrack3();
+        ////sub side
+        //drawCrack8();
+        //isActivated3 = true;
         isActivated3 = true;
+        isActivated3_ = true;
+        isActivated8 = true;
+        isActivated8_ = true;
       } else if (x == trigger4.x && y == trigger4.y) {
-        drawCrack4();
+        //drawCrack4();
+        isActivated4 = true;
+        isActivated4_ = true;
       } else if (x == trigger5.x && y == trigger5.y) {
         isActivated5 = true;
         //drawCrack5();
@@ -129,13 +147,36 @@ void drawPharus()
       }  else if (x == trigger9.x && y == trigger9.y) {
         drawCrack9();
       } else if (x == trigger10.x && y == trigger10.y) {
-        drawCrack10();
-        //sub side
-        drawCrack4();
-        drawCrack7();
+        //drawCrack10();
+        ////sub side
+        //drawCrack4();
+        //drawCrack7();
+        //isActivated10 = true;
+        isActivated7 = true;
+        isActivated7_ = true;
         isActivated10 = true;
+        isActivated10_ = true;
       }            
+      drawCrackTop();
+      drawCrackTop2();
+      drawCrack2();
+      drawCrack2_();
+      drawCrack3();
+      drawCrack3_();
+      drawCrack4();
+      drawCrack4_();
       drawCrack5();
+      drawCrack5_();
+      drawCrack6();
+      drawCrack6_();
+      drawCrack7();
+      drawCrack7_();
+      drawCrack8();
+      drawCrack8_();
+      drawCrack9();
+      drawCrack9_();
+      drawCrack10();
+      drawCrack10_();
      // fill(255);
      // text(GetCursorID(trackID), GetX(trackID), GetY(trackID));
     }
