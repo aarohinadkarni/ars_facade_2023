@@ -170,6 +170,12 @@ boolean isDoneDrawing8_;
 boolean isDoneDrawing9_;
 boolean isDoneDrawing10_;
 
+boolean extraDoneDrawing = false;
+
+boolean codeFinished;
+
+int startTime;
+
 void setup() {
   frameRate(25);
   size(1200, 400);
@@ -570,12 +576,13 @@ void draw() { //<>//
 
   int step = 1;
 
-  for (int y = 0; y < 30; y += step) {
-    for (int x = 0; x < 75; x+= step) {
-      fill(backgroundColor);
-      rect(x, y, 1, step);
-    }
-  }
+  //for (int y = 0; y < 30; y += step) {
+  //  for (int x = 0; x < 75; x+= step) {
+  //    fill(backgroundColor);
+  //    rect(x, y, 1, step);
+  //  }
+  //}
+  fillFacade(backgroundColor);
 
   for (Pixel crack : allCracks) {
     fill(crackColor);
@@ -776,6 +783,14 @@ void draw() { //<>//
   && isDoneDrawing6_ && isDoneDrawing7_ && isDoneDrawing8_ && isDoneDrawing9_ && isDoneDrawing10_) {
     delay(1000);
     drawExtra();
+    boolean ready = startCounter();
+    //int frame = frameCount;
+    if (ready) {
+      startTime = millis();
+    }
+    //if (extraDoneDrawing) {
+    //  fillFacade(color(crackColor));
+    //} 
   }
   //rect(36,8+1,1,step);
   //rect(34,9+1,1,step);
@@ -1072,6 +1087,38 @@ void keyPressed() {
     crackColor = color(0);
   }
 }
+
+void fillFacade(color col) {
+  for (int y = 0; y < 30; y += 1) {
+    for (int x = 0; x < 75; x+= 1) {
+      fill(col);
+      rect(x, y, 1, 1);
+    }
+  }
+}
+
+//void stageOne() {
+//  //black bg with purple cracks
+//  //add all code
+//  codeFinished = false;
+//}
+
+//void stageTwo(){
+//  //purple bg with white cracks
+//  stageOne();
+//  //add all code
+//  //if statement for if extraCracks are filled/true, lightning flash animation happens
+//  fill (255);
+//  allPixels(); //allPixels function to fill in the rest
+//  codeFinished = true
+//}
+
+////idk if this goes in draw, the code below
+//if codeFinished = true {
+//  stageOne();
+//} else {
+//    stageTwo();
+//}
 
 void drawCrackTop() {
   fill(crackColor);
@@ -2014,6 +2061,17 @@ void drawHuman() {
   fill(255, 255, 0);
   rect(mouseX/aec.getScaleX(), mouseY/aec.getScaleY(), 1, 1);
   rect(mouseX/aec.getScaleX(), mouseY/aec.getScaleY()+1, 1, 1);
+}
+
+boolean startCounter() {
+  if (startTime == 0) {
+    startTime = millis();
+  }
+  int currentTime = millis();
+  if (currentTime - startTime > 4000) {
+    startTime = -1;
+    return true;
+  }
 }
 
 class Trigger {
