@@ -86,6 +86,7 @@ float speed =40;
 float crackFill1;
 float crackFill2;
 float crackFill3;
+float crackFill4;
 float crackFill10;
 
 void setup() {
@@ -102,7 +103,7 @@ void setup() {
   trigger1 = new Trigger(34,3);
   trigger2 = new Trigger(32,10);
   trigger3 = new Trigger(31,20);
-  trigger4 = new Trigger(28,17);
+  trigger4 = new Trigger(33,14);
   trigger5 = new Trigger(26,21);
   trigger6 = new Trigger(24,16);
   trigger7 = new Trigger(22,2);
@@ -184,7 +185,7 @@ void setup() {
   //rect(33,14,1,1);
   crack4Pixels.add(new Pixel(33,14,1,1));
   //rect(34,15,1,1);
-  crack4Pixels.add(new Pixel(34,15,1,1));
+  //crack4Pixels.add(new Pixel(34,15,1,1));
   
   //rect(26,21,1,1);
   crack5Pixels.add(new Pixel(26,21,1,1));
@@ -282,9 +283,9 @@ void draw() { //<>//
   background(0, 0,0);
   
   //println(x1);
-  rectMode(CENTER);
+  //rectMode(CENTER);
 
-  noStroke();
+  noStroke(); 
 
   int step = 1;
 
@@ -339,6 +340,16 @@ void draw() { //<>//
   }
   // trigger 3
   rect(31,20,1,1);
+  
+   if (isActivated4){
+    fill(crackColor);
+  }
+  else {
+    fill(crackFill4);
+    println("crack fill: " + crackFill4);
+  }
+  // trigger 3
+  rect(33,14,1,1);
   
   if (isActivated10){
     fill(crackColor);
@@ -760,8 +771,6 @@ void drawCrackTop() {
     isActivated1 = false;
   }
   int rectNum = crack1Pixels.size()-1;
-  println("rectNum: " + rectNum);
-  println("counter:" + counter5);
   
   if(isDrawing1) {
       int currentTime = millis();
@@ -836,8 +845,6 @@ void drawCrack2() {
     isActivated2 = false;
   }
   int rectNum = crack2Pixels.size()-1;
-  println("rectNum: " + rectNum);
-  println("counter:" + counter2);
   
   if(isDrawing2) {
       int currentTime = millis();
@@ -902,8 +909,6 @@ void drawCrack3() {
     isActivated3 = false;
   }
   int rectNum = crack3Pixels.size()-1;
-  println("rectNum: " + rectNum);
-  println("counter:" + counter3);
   
   if(isDrawing3) {
       int currentTime = millis();
@@ -963,8 +968,6 @@ void drawCrack4() {
     isActivated4 = false;
   }
   int rectNum = crack4Pixels.size()-1;
-  println("rectNum: " + rectNum);
-  println("counter:" + counter4);
   
   if(isDrawing4) {
       int currentTime = millis();
@@ -996,8 +999,8 @@ void drawCrack4_() {
   allCracks.add(new Pixel(32-20,15,1,1));
   rect(33-20,14,1,1);
   allCracks.add(new Pixel(33-20,14,1,1));
-  rect(34-20,15,1,1);
-  allCracks.add(new Pixel(34-20,15,1,1));
+  //rect(34-20,15,1,1);
+  //allCracks.add(new Pixel(34-20,15,1,1));
 }
 
 void drawCrack5() {
@@ -1015,8 +1018,6 @@ void drawCrack5() {
     isActivated5 = false;
   }
   int rectNum = crack5Pixels.size()-1;
-  println("rectNum: " + rectNum);
-  println("counter:" + counter5);
   
   if(isDrawing5) {
       int currentTime = millis();
@@ -1077,8 +1078,6 @@ void drawCrack6() {
     isActivated6 = false;
   }
   int rectNum = crack6Pixels.size()-1;
-  println("rectNum: " + rectNum);
-  println("counter:" + counter6);
   
   if(isDrawing6) {
       int currentTime = millis();
@@ -1109,8 +1108,6 @@ void drawCrack7() {
     isActivated7 = false;
   }
   int rectNum = crack7Pixels.size()-1;
-  println("rectNum: " + rectNum);
-  println("counter:" + counter7);
   
   if(isDrawing7) {
       int currentTime = millis();
@@ -1149,8 +1146,6 @@ void drawCrack8() {
     isActivated8 = false;
   }
   int rectNum = crack8Pixels.size()-1;
-  println("rectNum: " + rectNum);
-  println("counter:" + counter8);
   
   if(isDrawing8) {
       int currentTime = millis();
@@ -1189,9 +1184,6 @@ void drawCrack9() {
     isActivated9 = false;
   }
   int rectNum = crack9Pixels.size()-1;
-  println("rectNum: " + rectNum);
-  println("counter:" + counter9);
-  
   if(isDrawing9) {
       int currentTime = millis();
       if ((currentTime-startTime9)>200) {
@@ -1230,8 +1222,6 @@ void drawCrack10() {
     isActivated10 = false;
   }
   int rectNum = crack10Pixels.size()-1;
-  println("rectNum: " + rectNum);
-  println("counter:" + counter10);
   
   if(isDrawing10) {
       int currentTime = millis();
