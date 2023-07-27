@@ -172,9 +172,15 @@ boolean isDoneDrawing10_;
 
 boolean extraDoneDrawing = false;
 
-boolean codeFinished;
+boolean codeFinished = true;
+boolean stageFinished = false;
 
 int startTime;
+
+int flashCount = 0;
+int startFlash =0;
+
+boolean startAnimation = false;
 
 void setup() {
   frameRate(25);
@@ -590,6 +596,12 @@ void draw() { //<>//
   }
   drawPharus(); 
   
+  if (codeFinished == true) {
+    stageOne();
+  } else {
+    stageTwo();
+  }
+  
   //int x = GetX(trackID);/// aec.getScaleX();
   //    int y = GetY(trackID);// / aec.getScaleY();
   //    x = int(map(x,0,1200,30,40));
@@ -599,199 +611,199 @@ void draw() { //<>//
   //  rect(x2, y, 1, step);
   //}
   
-  if (isActivated1){
-    fill(crackColor);
-  }
-  else {
-    fill(crackFill1);
-    println("crack fill: " + crackFill1);
-  }
-  // trigger 1
-  rect(34,3,1,1);
+  //if (isActivated1){
+  //  fill(crackColor);
+  //}
+  //else {
+  //  fill(crackFill1);
+  //  println("crack fill: " + crackFill1);
+  //}
+  //// trigger 1
+  //rect(34,3,1,1);
   
-  if (isActivated2){
-    fill(crackColor);
-  }
-  else {
-    fill(crackFill2);
-    println("crack fill: " + crackFill2);
-  }
-  // trigger 2
-  rect(32,10,1,1);
+  //if (isActivated2){
+  //  fill(crackColor);
+  //}
+  //else {
+  //  fill(crackFill2);
+  //  println("crack fill: " + crackFill2);
+  //}
+  //// trigger 2
+  //rect(32,10,1,1);
   
-  if (isActivated3){
-    fill(crackColor);
-  }
-  else {
-    fill(crackFill3);
-    println("crack fill: " + crackFill3);
-  }
-  // trigger 3
-  rect(31,20,1,1);
+  //if (isActivated3){
+  //  fill(crackColor);
+  //}
+  //else {
+  //  fill(crackFill3);
+  //  println("crack fill: " + crackFill3);
+  //}
+  //// trigger 3
+  //rect(31,20,1,1);
   
-   if (isActivated4){
-    fill(crackColor);
-  }
-  else {
-    fill(crackFill4);
-    println("crack fill: " + crackFill4);
-  }
-  // trigger 3
-  rect(33,14,1,1);
+  // if (isActivated4){
+  //  fill(crackColor);
+  //}
+  //else {
+  //  fill(crackFill4);
+  //  println("crack fill: " + crackFill4);
+  //}
+  //// trigger 3
+  //rect(33,14,1,1);
   
-  if (isActivated10){
-    fill(crackColor);
-  }
-  else {
-    fill(crackFill10);
-    println("crack fill: " + crackFill10);
-  }
-  // trigger 10
-  rect(39,3,1,1);
+  //if (isActivated10){
+  //  fill(crackColor);
+  //}
+  //else {
+  //  fill(crackFill10);
+  //  println("crack fill: " + crackFill10);
+  //}
+  //// trigger 10
+  //rect(39,3,1,1);
   
-  pulse = pulse+speed;
+  //pulse = pulse+speed;
 
-  // the pulse anytime it reaches max/min to continue to cycle through
-  if (pulse>=255 || pulse<=0) {
-    speed=speed*-1;
-  }
+  //// the pulse anytime it reaches max/min to continue to cycle through
+  //if (pulse>=255 || pulse<=0) {
+  //  speed=speed*-1;
+  //}
   
-  // crack if
-  if (crackFill1 == crackColor) {
-    crackFill1 = crackColor;
-  } else {
-    crackFill1 = pulse; //<>//
-  }
-  if (crackFill2 == crackColor) {
-    crackFill2 = crackColor;
-  } else {
-    crackFill2 = pulse;
-  }
-  if (crackFill3 == crackColor) {
-    crackFill3 = crackColor;
-  } else {
-    crackFill3 = pulse;
-  }
-  if (crackFill4 == crackColor) {
-    crackFill4 = crackColor;
-  } else {
-    crackFill4 = pulse;
-  }
-  if (crackFill10 == crackColor) {
-    crackFill10 = crackColor;
-  } else {
-    crackFill10 = pulse;
-  }
+  //// crack if
+  //if (crackFill1 == crackColor) {
+  //  crackFill1 = crackColor;
+  //} else {
+  //  crackFill1 = pulse; //<>//
+  //}
+  //if (crackFill2 == crackColor) {
+  //  crackFill2 = crackColor;
+  //} else {
+  //  crackFill2 = pulse;
+  //}
+  //if (crackFill3 == crackColor) {
+  //  crackFill3 = crackColor;
+  //} else {
+  //  crackFill3 = pulse;
+  //}
+  //if (crackFill4 == crackColor) {
+  //  crackFill4 = crackColor;
+  //} else {
+  //  crackFill4 = pulse;
+  //}
+  //if (crackFill10 == crackColor) {
+  //  crackFill10 = crackColor;
+  //} else {
+  //  crackFill10 = pulse;
+  //}
   
   
-  println(mouseX/aec.getScaleX(),mouseY/aec.getScaleY());
-  drawHuman();
-  fill(color1);
-  // crack 1
-  if (mouseX/aec.getScaleX() == trigger1.x && mouseY/aec.getScaleY() == trigger1.y) {
-    //drawCrackTop(); //<>//
-    //drawCrackTop2();
-    //drawCrack5_();
-    //drawCrack9_();
-    crackFill1 = crackColor;
-    //drawCrack9();
-    isActivated1 = true;
-    isActivated1_ = true;
-    isActivated5 = true;
-    isActivated5_ = true;
-    isActivated9 = true;
-    isActivated9_ = true;
-  } else if (mouseX/aec.getScaleX() == trigger2.x && mouseY/aec.getScaleY() == trigger2.y) {
-    //drawCrack2();
-    //sub side
-    //drawCrack6();
-    //drawCrack2_();
-    //drawCrack6_();
-    isActivated2 = true;
-    isActivated2_ = true;
-    isActivated6 = true;
-    isActivated6_ = true;
-  } else if (mouseX/aec.getScaleX() == trigger3.x && mouseY/aec.getScaleY() == trigger3.y) {
-    //drawCrack3();
-    //drawCrack3_();
-    //drawCrack8_();
-    //sub side
-    //drawCrack8();
-    isActivated3 = true;
-    isActivated3_ = true;
-    isActivated8 = true;
-    isActivated8_ = true;
-  //} else if (mouseX/aec.getScaleX() == trigger4.x && mouseY/aec.getScaleY() == trigger4.y) {
-  //  drawCrack4();
-  //  //sub side
-  //  drawCrack7();
-  //} else if (mouseX/aec.getScaleX() == trigger5.x && mouseY/aec.getScaleY() == trigger5.y) {
+  //println(mouseX/aec.getScaleX(),mouseY/aec.getScaleY());
+  //drawHuman();
+  //fill(color1);
+  //// crack 1
+  //if (mouseX/aec.getScaleX() == trigger1.x && mouseY/aec.getScaleY() == trigger1.y) {
+  //  //drawCrackTop(); //<>//
+  //  //drawCrackTop2();
+  //  //drawCrack5_();
+  //  //drawCrack9_();
+  //  crackFill1 = crackColor;
+  //  //drawCrack9();
+  //  isActivated1 = true;
+  //  isActivated1_ = true;
   //  isActivated5 = true;
-  //} else if (mouseX/aec.getScaleX() == trigger6.x && mouseY/aec.getScaleY() == trigger6.y) {
-  //  drawCrack6();
-  //} else if (mouseX/aec.getScaleX() == trigger7.x && mouseY/aec.getScaleY() == trigger7.y) {
-  //  drawCrack7();
-  //} else if (mouseX/aec.getScaleX() == trigger8.x && mouseY/aec.getScaleY() == trigger8.y) {
-  //  drawCrack8();
-  //}  else if (mouseX/aec.getScaleX() == trigger9.x && mouseY/aec.getScaleY() == trigger9.y) {
-  //  drawCrack9();
-  } else if (mouseX/aec.getScaleX() == trigger4.x && mouseY/aec.getScaleY() == trigger4.y) {
-    //drawCrack3();
-    //drawCrack4_();
-    //sub side
-    //drawCrack8();
-    isActivated4 = true;
-    isActivated4_ = true;
-  } else if (mouseX/aec.getScaleX() == trigger10.x && mouseY/aec.getScaleY() == trigger10.y) {
-    //drawCrack10();
-    //sub side
-    //drawCrack4();
-    //drawCrack4_();
-    //drawCrack7();
-    //rawCrack7_();
-    //drawCrack10_();
-    //isActivated4 = true;
-    isActivated7 = true;
-    isActivated7_ = true;
-    isActivated10 = true;
-    isActivated10_ = true;
-  } 
-  drawCrackTop();
-  drawCrackTop2();
-  drawCrack2();
-  drawCrack2_();
-  drawCrack3();
-  drawCrack3_();
-  drawCrack4();
-  drawCrack4_();
-  drawCrack5();
-  drawCrack5_();
-  drawCrack6();
-  drawCrack6_();
-  drawCrack7();
-  drawCrack7_();
-  drawCrack8();
-  drawCrack8_();
-  drawCrack9();
-  drawCrack9_();
-  drawCrack10();
-  drawCrack10_();
+  //  isActivated5_ = true;
+  //  isActivated9 = true;
+  //  isActivated9_ = true;
+  //} else if (mouseX/aec.getScaleX() == trigger2.x && mouseY/aec.getScaleY() == trigger2.y) {
+  //  //drawCrack2();
+  //  //sub side
+  //  //drawCrack6();
+  //  //drawCrack2_();
+  //  //drawCrack6_();
+  //  isActivated2 = true;
+  //  isActivated2_ = true;
+  //  isActivated6 = true;
+  //  isActivated6_ = true;
+  //} else if (mouseX/aec.getScaleX() == trigger3.x && mouseY/aec.getScaleY() == trigger3.y) {
+  //  //drawCrack3();
+  //  //drawCrack3_();
+  //  //drawCrack8_();
+  //  //sub side
+  //  //drawCrack8();
+  //  isActivated3 = true;
+  //  isActivated3_ = true;
+  //  isActivated8 = true;
+  //  isActivated8_ = true;
+  ////} else if (mouseX/aec.getScaleX() == trigger4.x && mouseY/aec.getScaleY() == trigger4.y) {
+  ////  drawCrack4();
+  ////  //sub side
+  ////  drawCrack7();
+  ////} else if (mouseX/aec.getScaleX() == trigger5.x && mouseY/aec.getScaleY() == trigger5.y) {
+  ////  isActivated5 = true;
+  ////} else if (mouseX/aec.getScaleX() == trigger6.x && mouseY/aec.getScaleY() == trigger6.y) {
+  ////  drawCrack6();
+  ////} else if (mouseX/aec.getScaleX() == trigger7.x && mouseY/aec.getScaleY() == trigger7.y) {
+  ////  drawCrack7();
+  ////} else if (mouseX/aec.getScaleX() == trigger8.x && mouseY/aec.getScaleY() == trigger8.y) {
+  ////  drawCrack8();
+  ////}  else if (mouseX/aec.getScaleX() == trigger9.x && mouseY/aec.getScaleY() == trigger9.y) {
+  ////  drawCrack9();
+  //} else if (mouseX/aec.getScaleX() == trigger4.x && mouseY/aec.getScaleY() == trigger4.y) {
+  //  //drawCrack3();
+  //  //drawCrack4_();
+  //  //sub side
+  //  //drawCrack8();
+  //  isActivated4 = true;
+  //  isActivated4_ = true;
+  //} else if (mouseX/aec.getScaleX() == trigger10.x && mouseY/aec.getScaleY() == trigger10.y) {
+  //  //drawCrack10();
+  //  //sub side
+  //  //drawCrack4();
+  //  //drawCrack4_();
+  //  //drawCrack7();
+  //  //rawCrack7_();
+  //  //drawCrack10_();
+  //  //isActivated4 = true;
+  //  isActivated7 = true;
+  //  isActivated7_ = true;
+  //  isActivated10 = true;
+  //  isActivated10_ = true;
+  //} 
+  //drawCrackTop();
+  //drawCrackTop2();
+  //drawCrack2();
+  //drawCrack2_();
+  //drawCrack3();
+  //drawCrack3_();
+  //drawCrack4();
+  //drawCrack4_();
+  //drawCrack5();
+  //drawCrack5_();
+  //drawCrack6();
+  //drawCrack6_();
+  //drawCrack7();
+  //drawCrack7_();
+  //drawCrack8();
+  //drawCrack8_();
+  //drawCrack9();
+  //drawCrack9_();
+  //drawCrack10();
+  //drawCrack10_();
   
-  if (isDoneDrawing1 && isDoneDrawing2 && isDoneDrawing3 && isDoneDrawing4 && isDoneDrawing5 
-  && isDoneDrawing6 && isDoneDrawing7 && isDoneDrawing8 && isDoneDrawing9 && isDoneDrawing10 
-  && isDoneDrawing1_ && isDoneDrawing2_ && isDoneDrawing3_ && isDoneDrawing4_ && isDoneDrawing5_ 
-  && isDoneDrawing6_ && isDoneDrawing7_ && isDoneDrawing8_ && isDoneDrawing9_ && isDoneDrawing10_) {
-    delay(1000);
-    drawExtra();
-    boolean ready = startCounter();
-    //int frame = frameCount;
-    if (ready) {
-      startTime = millis();
-    }
-    //if (extraDoneDrawing) {
-    //  fillFacade(color(crackColor));
-    //} 
-  }
+  //if (isDoneDrawing1 && isDoneDrawing2 && isDoneDrawing3 && isDoneDrawing4 && isDoneDrawing5 
+  //&& isDoneDrawing6 && isDoneDrawing7 && isDoneDrawing8 && isDoneDrawing9 && isDoneDrawing10 
+  //&& isDoneDrawing1_ && isDoneDrawing2_ && isDoneDrawing3_ && isDoneDrawing4_ && isDoneDrawing5_ 
+  //&& isDoneDrawing6_ && isDoneDrawing7_ && isDoneDrawing8_ && isDoneDrawing9_ && isDoneDrawing10_) {
+  //  delay(1000);
+  //  drawExtra();
+  //  boolean ready = startCounter(2000);
+  //  //int frame = frameCount;
+  //  if (ready) {
+  //    fillFacade(color(crackColor));
+  //  }
+  //  //if (extraDoneDrawing) {
+  //  //  fillFacade(color(crackColor));
+  //  //} 
+  //}
   //rect(36,8+1,1,step);
   //rect(34,9+1,1,step);
   //rect(35,9+1,1,step);
@@ -1097,28 +1109,263 @@ void fillFacade(color col) {
   }
 }
 
-//void stageOne() {
-//  //black bg with purple cracks
-//  //add all code
-//  codeFinished = false;
-//}
+void stage (color color1, color color2) {
+  crackColor = color1;
+  backgroundColor = color2;
+  
+  if (isActivated1){
+    fill(crackColor);
+  } else {
+    fill(crackFill1);
+    println("crack fill: " + crackFill1);
+  }
+  // trigger 1
+  rect(34,3,1,1);
+  
+  if (isActivated2){
+    fill(crackColor);
+  }
+  else {
+    fill(crackFill2);
+    println("crack fill: " + crackFill2);
+  }
+  // trigger 2
+  rect(32,10,1,1);
+  
+  if (isActivated3){
+    fill(crackColor);
+  }
+  else {
+    fill(crackFill3);
+    println("crack fill: " + crackFill3);
+  }
+  // trigger 3
+  rect(31,20,1,1);
+  
+   if (isActivated4){
+    fill(crackColor);
+  }
+  else {
+    fill(crackFill4);
+    println("crack fill: " + crackFill4);
+  }
+  // trigger 3
+  rect(33,14,1,1);
+  
+  if (isActivated10){
+    fill(crackColor);
+  }
+  else {
+    fill(crackFill10);
+    println("crack fill: " + crackFill10);
+  }
+  // trigger 10
+  rect(39,3,1,1);
+  
+  pulse = pulse+speed;
 
-//void stageTwo(){
-//  //purple bg with white cracks
-//  stageOne();
-//  //add all code
-//  //if statement for if extraCracks are filled/true, lightning flash animation happens
-//  fill (255);
-//  allPixels(); //allPixels function to fill in the rest
-//  codeFinished = true
-//}
+  // the pulse anytime it reaches max/min to continue to cycle through
+  if (pulse>=255 || pulse<=0) {
+    speed=speed*-1;
+  }
+  
+  // crack if
+  if (crackFill1 == crackColor) {
+    crackFill1 = crackColor;
+  } else {
+    crackFill1 = pulse;
+  }
+  if (crackFill2 == crackColor) {
+    crackFill2 = crackColor;
+  } else {
+    crackFill2 = pulse;
+  }
+  if (crackFill3 == crackColor) {
+    crackFill3 = crackColor;
+  } else {
+    crackFill3 = pulse;
+  }
+  if (crackFill4 == crackColor) {
+    crackFill4 = crackColor;
+  } else {
+    crackFill4 = pulse;
+  }
+  if (crackFill10 == crackColor) {
+    crackFill10 = crackColor;
+  } else {
+    crackFill10 = pulse;
+  }
 
-////idk if this goes in draw, the code below
-//if codeFinished = true {
-//  stageOne();
-//} else {
-//    stageTwo();
-//}
+  println(mouseX/aec.getScaleX(),mouseY/aec.getScaleY());
+  drawHuman();
+  fill(color1);
+  // crack 1
+  if (mouseX/aec.getScaleX() == trigger1.x && mouseY/aec.getScaleY() == trigger1.y) {
+    //drawCrackTop();
+    //drawCrackTop2();
+    //drawCrack5_();
+    //drawCrack9_();
+    crackFill1 = crackColor;
+    //drawCrack9();
+    isActivated1 = true;
+    isActivated1_ = true;
+    isActivated5 = true;
+    isActivated5_ = true;
+    isActivated9 = true;
+    isActivated9_ = true;
+  } else if (mouseX/aec.getScaleX() == trigger2.x && mouseY/aec.getScaleY() == trigger2.y) {
+    //drawCrack2();
+    //sub side
+    //drawCrack6();
+    //drawCrack2_();
+    //drawCrack6_();
+    isActivated2 = true;
+    isActivated2_ = true;
+    isActivated6 = true;
+    isActivated6_ = true;
+  } else if (mouseX/aec.getScaleX() == trigger3.x && mouseY/aec.getScaleY() == trigger3.y) {
+    //drawCrack3();
+    //drawCrack3_();
+    //drawCrack8_();
+    //sub side
+    //drawCrack8();
+    isActivated3 = true;
+    isActivated3_ = true;
+    isActivated8 = true;
+    isActivated8_ = true;
+  //} else if (mouseX/aec.getScaleX() == trigger4.x && mouseY/aec.getScaleY() == trigger4.y) {
+  //  drawCrack4();
+  //  //sub side
+  //  drawCrack7();
+  //} else if (mouseX/aec.getScaleX() == trigger5.x && mouseY/aec.getScaleY() == trigger5.y) {
+  //  isActivated5 = true;
+  //} else if (mouseX/aec.getScaleX() == trigger6.x && mouseY/aec.getScaleY() == trigger6.y) {
+  //  drawCrack6();
+  //} else if (mouseX/aec.getScaleX() == trigger7.x && mouseY/aec.getScaleY() == trigger7.y) {
+  //  drawCrack7();
+  //} else if (mouseX/aec.getScaleX() == trigger8.x && mouseY/aec.getScaleY() == trigger8.y) {
+  //  drawCrack8();
+  //}  else if (mouseX/aec.getScaleX() == trigger9.x && mouseY/aec.getScaleY() == trigger9.y) {
+  //  drawCrack9();
+  } else if (mouseX/aec.getScaleX() == trigger4.x && mouseY/aec.getScaleY() == trigger4.y) {
+    //drawCrack3();
+    //drawCrack4_();
+    //sub side
+    //drawCrack8();
+    isActivated4 = true;
+    isActivated4_ = true;
+  } else if (mouseX/aec.getScaleX() == trigger10.x && mouseY/aec.getScaleY() == trigger10.y) {
+    //drawCrack10();
+    //sub side
+    //drawCrack4();
+    //drawCrack4_();
+    //drawCrack7();
+    //rawCrack7_();
+    //drawCrack10_();
+    //isActivated4 = true;
+    isActivated7 = true;
+    isActivated7_ = true;
+    isActivated10 = true;
+    isActivated10_ = true;
+  } 
+  drawCrackTop();
+  drawCrackTop2();
+  drawCrack2();
+  drawCrack2_();
+  drawCrack3();
+  drawCrack3_();
+  drawCrack4();
+  drawCrack4_();
+  drawCrack5();
+  drawCrack5_();
+  drawCrack6();
+  drawCrack6_();
+  drawCrack7();
+  drawCrack7_();
+  drawCrack8();
+  drawCrack8_();
+  drawCrack9();
+  drawCrack9_();
+  drawCrack10();
+  drawCrack10_();
+  
+  if (isDoneDrawing1 && isDoneDrawing2 && isDoneDrawing3 && isDoneDrawing4 && isDoneDrawing5 
+  && isDoneDrawing6 && isDoneDrawing7 && isDoneDrawing8 && isDoneDrawing9 && isDoneDrawing10 
+  && isDoneDrawing1_ && isDoneDrawing2_ && isDoneDrawing3_ && isDoneDrawing4_ && isDoneDrawing5_ 
+  && isDoneDrawing6_ && isDoneDrawing7_ && isDoneDrawing8_ && isDoneDrawing9_ && isDoneDrawing10_) {
+    delay(1000);
+    drawExtra();
+    boolean ready = startCounter(2000);
+    //int frame = frameCount;
+    if (ready) {
+      //flashColors(color(crackColor), color(255), 3);  
+      stageFinished = true;
+    }
+    //if (extraDoneDrawing) {
+    //  fillFacade(color(crackColor));
+    //} 
+  }
+  //fill(color2);
+}
+
+
+void flashColors(color col1, color col2, int flash) {
+  
+  if(startFlash == 0) {
+    startFlash = millis();
+    flashCount =0;
+  }
+  int currentTime = millis();
+  if((currentTime - startFlash) > 500 && flashCount < flash) {
+    if (flashCount % 2 ==0) fillFacade(col1);
+    else fillFacade(col2);
+    flashCount++;
+    startFlash = millis();
+  }
+  
+  //if (flashCount == flash)     codeFinished = true;
+  
+
+  
+}
+
+void stageOne() {
+  stage(color(111, 13, 209), color(0));
+  //black bg with purple cracks
+  if (stageFinished) {
+    fillFacade(color(225));
+    codeFinished = false;
+    resetValues();
+  }
+  //  TO DO:  if (stage one is finished), set codeFinished to false
+  //if fillFacade(color(111, 13, 209)) {
+  //  codeFinished = false;
+  //}
+}
+
+void stageTwo(){
+  stage(color(255), color(111,13,209));
+  //fillFacade(color(111,13,209));
+  
+  //fillFacade(color(0));
+  //purple bg with white cracks
+  if (stageFinished) {
+    //flashColors(color(crackColor), color(255), 3);
+    fillFacade(color(111,13,209));
+    //fillFacade(color(225));
+    //delay(1000);
+    //fillFacade(color(255));
+    //boolean ready = startCounter(1000);
+    //if (ready) {
+    //  fillFacade(color(111,13,209));
+    //}
+    //fillFacade(color(111,13,209));
+    codeFinished = true;
+    resetValues();
+  }
+}
+
+
 
 void drawCrackTop() {
   fill(crackColor);
@@ -1973,7 +2220,7 @@ void drawCrack10_() {
 }
 
 void drawExtra() {
-  fill(111, 13, 209);
+  fill(crackColor);
   rect(35,2,1,1);
   rect(36,3,1,1);
   rect(36,4,1,1);
@@ -2063,15 +2310,166 @@ void drawHuman() {
   rect(mouseX/aec.getScaleX(), mouseY/aec.getScaleY()+1, 1, 1);
 }
 
-boolean startCounter() {
+boolean startCounter(int milliSeconds) {
   if (startTime == 0) {
     startTime = millis();
   }
   int currentTime = millis();
-  if (currentTime - startTime > 4000) {
+  if (currentTime - startTime > milliSeconds) {
     startTime = -1;
     return true;
   }
+  return false;
+}
+
+void resetValues() {
+  allCracks = new ArrayList<Pixel>();
+
+  isDrawing1 = false;;
+  isActivated1 = false;
+  startTime1 =0;
+  counter1 = 0;
+  //crack1Pixels = new ArrayList<Pixel>();
+  
+  isDrawing1_ = false;
+  isActivated1_ = false;
+  startTime1_ =0;
+  counter1_ = 0;
+  //crack1Pixels_ = new ArrayList<Pixel>();
+  
+  isDrawing2 = false;
+  isActivated2 = false;
+  startTime2 =0;
+  counter2 = 0;
+  //crack2Pixels = new ArrayList<Pixel>();
+  
+  isDrawing2_ = false;
+  isActivated2_ = false;
+  startTime2_ =0;
+  counter2_ = 0;
+  //crack2Pixels_ = new ArrayList<Pixel>();
+  
+  isDrawing3 = false;
+  isActivated3 = false;
+  startTime3 =0;
+  counter3 = 0;
+  //crack3Pixels = new ArrayList<Pixel>();
+  
+  isDrawing3_ = false;
+  isActivated3_ = false;
+  startTime3_ =0;
+  counter3_ = 0;
+  //crack3Pixels_ = new ArrayList<Pixel>();
+  
+  isDrawing4 = false;
+  isActivated4 = false;
+  startTime4 =0;
+  counter4 = 0;
+  //crack4Pixels = new ArrayList<Pixel>();
+  
+  isDrawing4_ = false;
+  isActivated4_ = false;
+  startTime4_ =0;
+  counter4_ = 0;
+  //crack4Pixels_ = new ArrayList<Pixel>();
+  
+  isDrawing5 = false;
+  isActivated5 = false;
+  startTime5 =0;
+  counter5 = 0;
+  //crack5Pixels = new ArrayList<Pixel>();
+  
+  isDrawing5_ = false;
+  isActivated5_ = false;
+  startTime5_ =0;
+  counter5_ = 0;
+  //crack5Pixels_ = new ArrayList<Pixel>();
+  
+  isDrawing6 = false;
+  isActivated6 = false;
+  startTime6 =0;
+  counter6 = 0;
+  //crack6Pixels = new ArrayList<Pixel>();
+  
+  isDrawing6_ = false;
+  isActivated6_ = false;
+  startTime6_ =0;
+  counter6_ = 0;
+  //crack6Pixels_ = new ArrayList<Pixel>();
+  
+  isDrawing7 = false;
+  isActivated7 = false;
+  startTime7 =0;
+  counter7 = 0;
+  //crack7Pixels = new ArrayList<Pixel>();
+  
+  isDrawing7_ = false;
+  isActivated7_ = false;
+  startTime7_ =0;
+  counter7_ = 0;
+  //crack7Pixels_ = new ArrayList<Pixel>();
+  
+  isDrawing8 = false;
+  isActivated8 = false;
+  startTime8 =0;
+  counter8 = 0;
+  //crack8Pixels = new ArrayList<Pixel>();
+  
+  isDrawing8_ = false;
+  isActivated8_ = false;
+  startTime8_ =0;
+  counter8_ = 0;
+  //crack8Pixels_ = new ArrayList<Pixel>();
+  
+  isDrawing9 = false;
+  isActivated9 = false;
+  startTime9 =0;
+  counter9 = 0;
+  //crack9Pixels = new ArrayList<Pixel>();
+  
+  isDrawing9_ = false;
+  isActivated9_ = false;
+  startTime9_ =0;
+  counter9_ = 0;
+  //crack9Pixels_ = new ArrayList<Pixel>();
+  
+  isDrawing10 = false;
+  isActivated10 = false;
+  startTime10 =0;
+  counter10 = 0;
+  //crack10Pixels = new ArrayList<Pixel>();
+  
+  isDrawing10_ = false;
+  isActivated10_ = false;
+  startTime10_ =0;
+  counter10_ = 0;
+  //crack10Pixels_ = new ArrayList<Pixel>();
+  
+  isDoneDrawing1 = false;
+  isDoneDrawing2 = false;
+  isDoneDrawing3 = false;
+  isDoneDrawing4 = false;
+  isDoneDrawing5 = false;
+  isDoneDrawing6 = false;
+  isDoneDrawing7 = false;
+  isDoneDrawing8 = false;
+  isDoneDrawing9 = false;
+  isDoneDrawing10 = false;
+  isDoneDrawing1_ = false;
+  isDoneDrawing2_ = false;
+  isDoneDrawing3_ = false;
+  isDoneDrawing4_ = false;
+  isDoneDrawing5_ = false;
+  isDoneDrawing6_ = false;
+  isDoneDrawing7_ = false;
+  isDoneDrawing8_ = false;
+  isDoneDrawing9_ = false;
+  isDoneDrawing10_ = false;
+  
+  extraDoneDrawing = false;
+  
+  stageFinished = false;
+  startTime = 0;
 }
 
 class Trigger {

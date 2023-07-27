@@ -36,9 +36,8 @@ void setupPharus()
   initTracking(false, wallHeight); //wallHeight);
 }
 
-void drawPharus()
-{
-  
+void drawPharus() {
+ 
   // clear background with white
   //background(255);
 
@@ -75,111 +74,186 @@ void drawPharus()
     }
   }
   */
-
-  if (ShowTrack)
-  {
-    // show each track with the corresponding  id number
-    for (int trackID=0; trackID<GetNumTracks (); trackID++) 
-    {
-      //noStroke();
-      //fill(225);
-      fill(255,255,0);
-      
-      int x = GetX(trackID);/// aec.getScaleX();
-      int y = GetY(trackID);// / aec.getScaleY();
-      x = int(map(x,0,1200,30,40));
-      y = int(map(y,0,400,0,28));
-      rect(x, y, 1 , 1);
-      rect(x, y+1, 1 , 1);
-      //rect(x+1, y, 1 , 1);
-      //rect(x, y+1, 1 , 1);
-      //rect(x, y-1, 1 , 1);
-      //rect(x-1, y, 1 , 1);
+      //println("num tracks: " + GetNumTracks());
+      //if (GetNumTracks() == 0) {
+      //  fill(255,255,0);
+      //  //println("num tracks again: " + GetNumTracks());
+      //  boolean ready1 = startCounter(4000);
+      //  if (ready1) {
+      //    println("hi");
+      //    isActivated1 = true;
+      //    isActivated1_ = true;
+      //    isActivated5 = true;
+      //    isActivated5_ = true;
+      //    isActivated9 = true;
+      //    isActivated9_ = true;
+      //  }
+      //  println("hello");
+      //  ready1 = false;
+      //  boolean ready2 = startCounter(4000);
+      //  if (ready2) {
+      //    isActivated2 = true;
+      //    isActivated2_ = true;
+      //    isActivated6 = true;
+      //    isActivated6_ = true;
+      //  }
+      //  ready2 = false;
+      //  boolean ready3 = startCounter(4000);
+      //  if (ready3) {
+      //    isActivated3 = true;
+      //    isActivated3_ = true;
+      //    isActivated8 = true;
+      //    isActivated8_ = true;
+      //  }
+      //  ready3 = false;
+      //  boolean ready4 = startCounter(1000);
+      //  if (ready4) {
+      //    isActivated4 = true;
+      //    isActivated4_ = true;
+      //  }
+      //  ready4 = false;
+      //  boolean ready10 = startCounter(4000);
+      //  if (ready10) {
+      //    isActivated7 = true;
+      //    isActivated7_ = true;
+      //    isActivated10 = true;
+      //    isActivated10_ = true;
+      //  }
+      //  ready10 = false;
+      //  drawCrackTop();
+      //  drawCrackTop2();
+      //  drawCrack2();
+      //  drawCrack2_();
+      //  drawCrack3();
+      //  drawCrack3_();
+      //  drawCrack4();
+      //  drawCrack4_();
+      //  drawCrack5();
+      //  drawCrack5_();
+      //  drawCrack6();
+      //  drawCrack6_();
+      //  drawCrack7();
+      //  drawCrack7_();
+      //  drawCrack8();
+      //  drawCrack8_();
+      //  drawCrack9();
+      //  drawCrack9_();
+      //  drawCrack10();
+      //  drawCrack10_();
+      //  delay(1000);
+      //  drawExtra();
+      //  boolean ready = startCounter(2000);
+      ////int frame = frameCount;
+      //  if (ready) {
+      //  //flashColors(color(crackColor), color(255), 3);  
+      //    stageFinished = true;
+      //  }
+      //} 
+      // show each track with the corresponding  id number
+      for (int trackID=0; trackID<GetNumTracks (); trackID++) {
+        //noStroke();
+        //fill(225);
+        fill(255,255,0);
+        
+        int x = GetX(trackID);/// aec.getScaleX();
+        int y = GetY(trackID);// / aec.getScaleY();
+        x = int(map(x,0,1200,30,40));
+        y = int(map(y,0,400,0,28));
+        rect(x, y, 1 , 1);
+        rect(x, y+1, 1 , 1);
+        //rect(x+1, y, 1 , 1);
+        //rect(x, y+1, 1 , 1);
+        //rect(x, y-1, 1 , 1);
+        //rect(x-1, y, 1 , 1);
+    
   
-
-      if (x == trigger1.x && y == trigger1.y) {
-        //isActivated1 = true;
-        //drawCrackTop();
-        //crackFill1 = crackColor;
-        ////drawCrack1();
-        //drawCrack9();
-        //isActivated5 = true;
-        crackFill1 = crackColor;
-        //drawCrack9();
-        isActivated1 = true;
-        isActivated1_ = true;
-        isActivated5 = true;
-        isActivated5_ = true;
-        isActivated9 = true;
-        isActivated9_ = true;
-        //drawCrack1();
-      } else if (x == trigger2.x && y == trigger2.y) {
-        //drawCrack2();
-        ////sub side
-        //drawCrack6();
-        //isActivated2 = true;
-        isActivated2 = true;
-        isActivated2_ = true;
-        isActivated6 = true;
-        isActivated6_ = true;
-      } else if (x == trigger3.x && y == trigger3.y) {
-        //drawCrack3();
-        ////sub side
-        //drawCrack8();
-        //isActivated3 = true;
-        isActivated3 = true;
-        isActivated3_ = true;
-        isActivated8 = true;
-        isActivated8_ = true;
-      } else if (x == trigger4.x && y == trigger4.y) {
-        //drawCrack4();
-        isActivated4 = true;
-        isActivated4_ = true;
-      } else if (x == trigger5.x && y == trigger5.y) {
-        isActivated5 = true;
-        //drawCrack5();
-      } else if (x == trigger6.x && y == trigger6.y) {
+        if (x == trigger1.x && y == trigger1.y) {
+          //isActivated1 = true;
+          //drawCrackTop();
+          //crackFill1 = crackColor;
+          ////drawCrack1();
+          //drawCrack9();
+          //isActivated5 = true;
+          crackFill1 = crackColor;
+          //drawCrack9();
+          isActivated1 = true;
+          isActivated1_ = true;
+          isActivated5 = true;
+          isActivated5_ = true;
+          isActivated9 = true;
+          isActivated9_ = true;
+          //drawCrack1();
+        } else if (x == trigger2.x && y == trigger2.y) {
+          //drawCrack2();
+          ////sub side
+          //drawCrack6();
+          //isActivated2 = true;
+          isActivated2 = true;
+          isActivated2_ = true;
+          isActivated6 = true;
+          isActivated6_ = true;
+        } else if (x == trigger3.x && y == trigger3.y) {
+          //drawCrack3();
+          ////sub side
+          //drawCrack8();
+          //isActivated3 = true;
+          isActivated3 = true;
+          isActivated3_ = true;
+          isActivated8 = true;
+          isActivated8_ = true;
+        } else if (x == trigger4.x && y == trigger4.y) {
+          //drawCrack4();
+          isActivated4 = true;
+          isActivated4_ = true;
+        } else if (x == trigger5.x && y == trigger5.y) {
+          isActivated5 = true;
+          //drawCrack5();
+        } else if (x == trigger6.x && y == trigger6.y) {
+          drawCrack6();
+        } else if (x == trigger7.x && y == trigger7.y) {
+          drawCrack7();
+        } else if (x == trigger8.x && y == trigger8.y) {
+          drawCrack8();
+        }  else if (x == trigger9.x && y == trigger9.y) {
+          drawCrack9();
+        } else if (x == trigger10.x && y == trigger10.y) {
+          //drawCrack10();
+          ////sub side
+          //drawCrack4();
+          //drawCrack7();
+          //isActivated10 = true;
+          isActivated7 = true;
+          isActivated7_ = true;
+          isActivated10 = true;
+          isActivated10_ = true;
+        }            
+        drawCrackTop();
+        drawCrackTop2();
+        drawCrack2();
+        drawCrack2_();
+        drawCrack3();
+        drawCrack3_();
+        drawCrack4();
+        drawCrack4_();
+        drawCrack5();
+        drawCrack5_();
         drawCrack6();
-      } else if (x == trigger7.x && y == trigger7.y) {
+        drawCrack6_();
         drawCrack7();
-      } else if (x == trigger8.x && y == trigger8.y) {
+        drawCrack7_();
         drawCrack8();
-      }  else if (x == trigger9.x && y == trigger9.y) {
+        drawCrack8_();
         drawCrack9();
-      } else if (x == trigger10.x && y == trigger10.y) {
-        //drawCrack10();
-        ////sub side
-        //drawCrack4();
-        //drawCrack7();
-        //isActivated10 = true;
-        isActivated7 = true;
-        isActivated7_ = true;
-        isActivated10 = true;
-        isActivated10_ = true;
-      }            
-      drawCrackTop();
-      drawCrackTop2();
-      drawCrack2();
-      drawCrack2_();
-      drawCrack3();
-      drawCrack3_();
-      drawCrack4();
-      drawCrack4_();
-      drawCrack5();
-      drawCrack5_();
-      drawCrack6();
-      drawCrack6_();
-      drawCrack7();
-      drawCrack7_();
-      drawCrack8();
-      drawCrack8_();
-      drawCrack9();
-      drawCrack9_();
-      drawCrack10();
-      drawCrack10_();
-     // fill(255);
-     // text(GetCursorID(trackID), GetX(trackID), GetY(trackID));
-    }
+        drawCrack9_();
+        drawCrack10();
+        drawCrack10_();
+    //if (extraDoneDrawing) {
+    //  fillFacade(color(crackColor));
+    //} 
+  }
+       // fill(255);
+       // text(GetCursorID(trackID), GetX(trackID), GetY(trackID));
+      
   }
 
 /*
@@ -203,7 +277,7 @@ void drawPharus()
     }
   }
   */
-}
+
 
 void keyPressedPharus()
 {
