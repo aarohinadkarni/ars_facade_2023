@@ -149,6 +149,27 @@ float crackFill3;
 float crackFill4;
 float crackFill10;
 
+boolean isDoneDrawing1;
+boolean isDoneDrawing2;
+boolean isDoneDrawing3;
+boolean isDoneDrawing4;
+boolean isDoneDrawing5;
+boolean isDoneDrawing6;
+boolean isDoneDrawing7;
+boolean isDoneDrawing8;
+boolean isDoneDrawing9;
+boolean isDoneDrawing10;
+boolean isDoneDrawing1_;
+boolean isDoneDrawing2_;
+boolean isDoneDrawing3_;
+boolean isDoneDrawing4_;
+boolean isDoneDrawing5_;
+boolean isDoneDrawing6_;
+boolean isDoneDrawing7_;
+boolean isDoneDrawing8_;
+boolean isDoneDrawing9_;
+boolean isDoneDrawing10_;
+
 void setup() {
   frameRate(25);
   size(1200, 400);
@@ -748,6 +769,14 @@ void draw() { //<>//
   drawCrack9_();
   drawCrack10();
   drawCrack10_();
+  
+  if (isDoneDrawing1 && isDoneDrawing2 && isDoneDrawing3 && isDoneDrawing4 && isDoneDrawing5 
+  && isDoneDrawing6 && isDoneDrawing7 && isDoneDrawing8 && isDoneDrawing9 && isDoneDrawing10 
+  && isDoneDrawing1_ && isDoneDrawing2_ && isDoneDrawing3_ && isDoneDrawing4_ && isDoneDrawing5_ 
+  && isDoneDrawing6_ && isDoneDrawing7_ && isDoneDrawing8_ && isDoneDrawing9_ && isDoneDrawing10_) {
+    delay(1000);
+    drawExtra();
+  }
   //rect(36,8+1,1,step);
   //rect(34,9+1,1,step);
   //rect(35,9+1,1,step);
@@ -1002,6 +1031,7 @@ void draw() { //<>//
   //drawCrack7_();
   //drawCrack5_();
   //drawCrack9_();
+  //drawExtra();
   aec.endDraw();
   aec.drawSides();
 }
@@ -1084,6 +1114,7 @@ void drawCrackTop() {
   }
   if(counter1 > rectNum) {
     isDrawing1 = false;
+    isDoneDrawing1 = true;
   }
 }
 
@@ -1131,6 +1162,7 @@ void drawCrackTop2() {
   }
   if(counter1_ > rectNum) {
     isDrawing1_ = false;
+    isDoneDrawing1_ = true;
   }
 }
 
@@ -1176,6 +1208,7 @@ void drawCrack2() {
   }
   if(counter2 > rectNum) {
     isDrawing2 = false;
+    isDoneDrawing2 = true;
   }
 }
 
@@ -1221,6 +1254,7 @@ void drawCrack2_() {
   }
   if(counter2_ > rectNum) {
     isDrawing2_ = false;
+    isDoneDrawing2_ = true;
   }
 }
 
@@ -1259,6 +1293,7 @@ void drawCrack3() {
   }
   if(counter3 > rectNum) {
     isDrawing3 = false;
+    isDoneDrawing3 = true;
   }
 }
 
@@ -1298,6 +1333,7 @@ void drawCrack3_() {
   }
   if(counter3_ > rectNum) {
     isDrawing3_ = false;
+    isDoneDrawing3_ = true;
   }
 }
 
@@ -1338,6 +1374,7 @@ void drawCrack4() {
   }
   if(counter4 > rectNum) {
     isDrawing4 = false;
+    isDoneDrawing4 = true;
   }
 }
 
@@ -1378,6 +1415,7 @@ void drawCrack4_() {
   }
   if(counter4_ > rectNum) {
     isDrawing4_ = false;
+    isDoneDrawing4_ = true;
   }
 }
 
@@ -1408,6 +1446,7 @@ void drawCrack5() {
   }
   if(counter5 > rectNum) {
     isDrawing5 = false;
+    isDoneDrawing5 = true;
   }
   /*
   while (isDrawing5) {
@@ -1456,6 +1495,7 @@ void drawCrack5_() {
   }
   if(counter5_ > rectNum) {
     isDrawing5_ = false;
+    isDoneDrawing5_ = true;
   }
 }
 
@@ -1504,6 +1544,7 @@ void drawCrack6() {
   }
   if(counter6 > rectNum) {
     isDrawing6 = false;
+    isDoneDrawing6 = true;
   }
 }
 
@@ -1559,6 +1600,7 @@ void drawCrack6_() {
   }
   if(counter6_ > rectNum) {
     isDrawing6_ = false;
+    isDoneDrawing6_ = true;
   }
 }
 
@@ -1589,6 +1631,7 @@ void drawCrack7() {
   }
   if(counter7 > rectNum) {
     isDrawing7 = false;
+    isDoneDrawing7 = true;
   }
 }
 
@@ -1625,6 +1668,7 @@ void drawCrack7_() {
   }
   if(counter7_ > rectNum) {
     isDrawing7_ = false;
+    isDoneDrawing7_ = true;
   }
  
 }
@@ -1664,6 +1708,7 @@ void drawCrack8() {
   }
   if(counter8 > rectNum) {
     isDrawing8 = false;
+    isDoneDrawing8 = true;
   }
 }
 
@@ -1708,6 +1753,7 @@ void drawCrack8_() {
   }
   if(counter8_ > rectNum) {
     isDrawing8_ = false;
+    isDoneDrawing8_ = true;
   }
 }
 void drawCrack9() {
@@ -1744,6 +1790,7 @@ void drawCrack9() {
   }
   if(counter9 > rectNum) {
     isDrawing9 = false;
+    isDoneDrawing9 = true;
   }
 }
 
@@ -1795,6 +1842,7 @@ void drawCrack9_() {
   }
   if(counter9_ > rectNum) {
     isDrawing9_ = false;
+    isDoneDrawing9_ = true;
   }
 }
 
@@ -1834,6 +1882,7 @@ void drawCrack10() {
   }
   if(counter10 > rectNum) {
     isDrawing10 = false;
+    isDoneDrawing10 = true;
   }
 }
 
@@ -1872,7 +1921,92 @@ void drawCrack10_() {
   }
   if(counter10_ > rectNum) {
     isDrawing10_ = false;
+    isDoneDrawing10_ = true;
   }
+}
+
+void drawExtra() {
+  fill(111, 13, 209);
+  rect(35,2,1,1);
+  rect(36,3,1,1);
+  rect(36,4,1,1);
+  rect(35,5,1,1);
+  rect(36,6,1,1);rect(36,7,1,1);
+  rect(35,8,1,1);
+  rect(37,10,1,1);
+  rect(38,11,1,1);rect(39,11,1,1);
+  rect(39,14,1,1);
+  rect(34,13,1,1);rect(34,14,1,1);
+  rect(35,15,1,1);
+  rect(36,16,1,1);
+  rect(35,17,1,1);rect(37,17,1,1);rect(38,17,1,1);
+  rect(34,18,1,1);rect(37,18,1,1);rect(39,18,1,1);
+  rect(36,19,1,1);rect(36,20,1,1);
+  rect(37,21,1,1);rect(37,22,1,1);
+  rect(36,23,1,1);
+  rect(28,2,1,1);rect(31,2,1,1);
+  rect(28,3,1,1);rect(31,3,1,1);
+  rect(27,4,1,1);rect(30,4,1,1);
+  rect(28,5,1,1);rect(31,5,1,1);
+  rect(27,6,1,1);rect(30,6,1,1);
+  rect(27,7,1,1);rect(28,7,1,1);rect(29,7,1,1);
+  rect(29,8,1,1);
+  rect(28,9,1,1);
+  rect(29,10,1,1);
+  rect(21,4,1,1);
+  rect(19,5,1,1);rect(20,5,1,1);
+  rect(23,4,1,1);rect(23,5,1,1);rect(23,6,1,1);
+  rect(22,7,1,1);rect(24,7,1,1);
+  rect(20,8,1,1);rect(21,8,1,1);rect(25,8,1,1);rect(26,8,1,1);
+  rect(19,9,1,1);rect(22,9,1,1);rect(24,9,1,1);rect(26,9,1,1);
+  rect(21,10,1,1);rect(24,10,1,1);
+  rect(21,11,1,1);rect(23,11,1,1);rect(25,11,1,1);
+  rect(20,12,1,1);rect(22,12,1,1);rect(26,12,1,1);
+  rect(19,13,1,1);rect(26,13,1,1);rect(27,13,1,1);
+  rect(28,14,1,1);rect(25,14,1,1);
+  rect(24,15,1,1);rect(28,15,1,1);
+  rect(19,16,1,1);
+  rect(20,17,1,1);
+  rect(19,18,1,1);
+  rect(18,19,1,1);rect(20,19,1,1);
+  rect(18,20,1,1);rect(21,20,1,1);
+  rect(17,1,1,1);rect(17,2,1,1);rect(18,2,1,1);
+  rect(16,3,1,1);rect(15,4,1,1);rect(16,5,1,1);
+  rect(15,8,1,1);
+  rect(15,9,1,1);
+  rect(13,9,1,1);
+  rect(14,10,1,1);rect(16,10,1,1);
+  rect(13,2,1,1);
+  rect(12,1,1,1);
+  rect(11,0,1,1);
+  rect(10,1,1,1);
+  rect(9,2,1,1);rect(8,2,1,1);
+  rect(10,3,1,1);
+  rect(11,4,1,1);
+  rect(10,5,1,1);
+  rect(8,6,1,1);rect(9,6,1,1);
+  rect(11,6,1,1);
+  rect(4,14,1,1);rect(5,14,1,1);
+  rect(6,12,1,1);rect(7,12,1,1);rect(6,13,1,1);rect(7,13,1,1);
+  rect(8,14,1,1);rect(9,14,1,1);
+  rect(10,12,1,1);rect(11,12,1,1);
+  rect(10,13,1,1);
+  rect(10,18,1,1);
+  rect(11,17,1,1);
+  rect(12,16,1,1);
+  rect(13,17,1,1);
+  rect(14,18,1,1);rect(14,19,1,1);rect(15,20,1,1);
+  rect(15,17,1,1);
+  rect(16,16,1,1);
+  rect(0,4,1,1);rect(1,4,1,1);
+  rect(2,7,1,1);rect(3,7,1,1);
+  rect(0,8,1,1);rect(1,8,1,1);
+  rect(0,11,1,1);rect(1,11,1,1);
+  rect(0,19,1,1);rect(1,19,1,1);
+  rect(2,20,1,1);rect(3,20,1,1);
+  rect(2,22,1,1);rect(3,22,1,1);
+  rect(2,23,1,1);rect(3,23,1,1);
+  rect(0,24,1,1);rect(1,24,1,1);
 }
 
 void drawHuman() {
