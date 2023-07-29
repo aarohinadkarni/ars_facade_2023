@@ -75,71 +75,71 @@ void drawPharus() {
   }
   */
       //println("num tracks: " + GetNumTracks());
-      //if (GetNumTracks() == 0) {
-      //  fill(255,255,0);
-      //  //println("num tracks again: " + GetNumTracks());
-      //  boolean ready1 = startCounter(4000);
-      //  if (ready1) {
-      //    println("hi");
-      //    isActivated1 = true;
-      //    isActivated1_ = true;
-      //    isActivated5 = true;
-      //    isActivated5_ = true;
-      //    isActivated9 = true;
-      //    isActivated9_ = true;
-      //  }
-      //  println("hello");
-      //  ready1 = false;
-      //  boolean ready2 = startCounter(4000);
-      //  if (ready2) {
-      //    isActivated2 = true;
-      //    isActivated2_ = true;
-      //    isActivated6 = true;
-      //    isActivated6_ = true;
-      //  }
-      //  ready2 = false;
-      //  boolean ready3 = startCounter(4000);
-      //  if (ready3) {
-      //    isActivated3 = true;
-      //    isActivated3_ = true;
-      //    isActivated8 = true;
-      //    isActivated8_ = true;
-      //  }
-      //  ready3 = false;
-      //  boolean ready4 = startCounter(1000);
-      //  if (ready4) {
-      //    isActivated4 = true;
-      //    isActivated4_ = true;
-      //  }
-      //  ready4 = false;
-      //  boolean ready10 = startCounter(4000);
-      //  if (ready10) {
-      //    isActivated7 = true;
-      //    isActivated7_ = true;
-      //    isActivated10 = true;
-      //    isActivated10_ = true;
-      //  }
-      //  ready10 = false;
-      //  drawCrackTop();
-      //  drawCrackTop2();
-      //  drawCrack2();
-      //  drawCrack2_();
-      //  drawCrack3();
-      //  drawCrack3_();
-      //  drawCrack4();
-      //  drawCrack4_();
-      //  drawCrack5();
-      //  drawCrack5_();
-      //  drawCrack6();
-      //  drawCrack6_();
-      //  drawCrack7();
-      //  drawCrack7_();
-      //  drawCrack8();
-      //  drawCrack8_();
-      //  drawCrack9();
-      //  drawCrack9_();
-      //  drawCrack10();
-      //  drawCrack10_();
+      if (GetNumTracks() == 0) {
+        fill(255,255,0);
+        //println("num tracks again: " + GetNumTracks());
+        boolean ready1 = startCounter(4000);
+        if (ready1) {
+          println("hi");
+          isActivated1 = true;
+          isActivated1_ = true;
+          isActivated5 = true;
+          isActivated5_ = true;
+          isActivated9 = true;
+          isActivated9_ = true;
+        }
+        println("hello");
+        ready1 = false;
+        boolean ready2 = startCounter(4000);
+        if (ready2) {
+          isActivated2 = true;
+          isActivated2_ = true;
+          isActivated6 = true;
+          isActivated6_ = true;
+        }
+        ready2 = false;
+        boolean ready3 = startCounter(4000);
+        if (ready3) {
+          isActivated3 = true;
+          isActivated3_ = true;
+          isActivated8 = true;
+          isActivated8_ = true;
+        }
+        ready3 = false;
+        boolean ready4 = startCounter(1000);
+        if (ready4) {
+          isActivated4 = true;
+          isActivated4_ = true;
+        }
+        ready4 = false;
+        boolean ready10 = startCounter(4000);
+        if (ready10) {
+          isActivated7 = true;
+          isActivated7_ = true;
+          isActivated10 = true;
+          isActivated10_ = true;
+        }
+        ready10 = false;
+        drawCrackTop();
+        drawCrackTop2();
+        drawCrack2();
+        drawCrack2_();
+        drawCrack3();
+        drawCrack3_();
+        drawCrack4();
+        drawCrack4_();
+        drawCrack5();
+        drawCrack5_();
+        drawCrack6();
+        drawCrack6_();
+        drawCrack7();
+        drawCrack7_();
+        drawCrack8();
+        drawCrack8_();
+        drawCrack9();
+        drawCrack9_();
+        drawCrack10();
+        drawCrack10_();
       //  delay(1000);
       //  drawExtra();
       //  boolean ready = startCounter(2000);
@@ -148,7 +148,7 @@ void drawPharus() {
       //  //flashColors(color(crackColor), color(255), 3);  
       //    stageFinished = true;
       //  }
-      //} 
+      } 
       // show each track with the corresponding  id number
       for (int trackID=0; trackID<GetNumTracks (); trackID++) {
         //noStroke();
