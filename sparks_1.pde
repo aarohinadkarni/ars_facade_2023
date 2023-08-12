@@ -204,127 +204,70 @@ void setup() {
   trigger9 = new Trigger(25,8);
   trigger10 = new Trigger(39,3);
   
-  //rect(34,2,1,1);
   crack1Pixels.add(new Pixel(34,2,1,1));
-  //rect(34,3,1,1);
   crack1Pixels.add(new Pixel(34,3,1,1));
-  //rect(33,4,1,1);
   crack1Pixels.add(new Pixel(33,4,1,1));
-  //rect(32,5,1,1);
   crack1Pixels.add(new Pixel(32,5,1,1));
-  //rect(33,6,1,1);
   crack1Pixels.add(new Pixel(33,6,1,1));
-  //rect(34,7,1,1);
   crack1Pixels.add(new Pixel(34,7,1,1));
-  //rect(32,7,1,1);
   crack1Pixels.add(new Pixel(32,7,1,1));
-  //rect(31,8,1,1);
   crack1Pixels.add(new Pixel(31,8,1,1));
-  //rect(31,9,1,1);
   crack1Pixels.add(new Pixel(31,9,1,1));
-  //rect(30,10,1,1);
   crack1Pixels.add(new Pixel(30,10,1,1));
   
-  //rect(34-19,1,1,1);
   crack1Pixels_.add(new Pixel(34-19,1,1,1));
-  //rect(34-19,-2+2,1,1);
   crack1Pixels_.add(new Pixel(34-19,0,1,1));
-  //rect(34-20,2-2+2,1,1);
   crack1Pixels_.add(new Pixel(34-20,2,1,1));
-  //rect(34-20,3,1,1);
   crack1Pixels_.add(new Pixel(34-20,3,1,1));
-  //rect(33-20,4,1,1);
   crack1Pixels_.add(new Pixel(33-20,4,1,1));
-  //rect(32-20,5,1,1);
   crack1Pixels_.add(new Pixel(32-20,5,1,1));
-  //rect(33-20,6,1,1);
   crack1Pixels_.add(new Pixel(33-20,6,1,1));
-  //rect(34-20,7,1,1);
   crack1Pixels_.add(new Pixel(34-20,7,1,1));
-  //rect(32-20,7,1,1);
   crack1Pixels_.add(new Pixel(32-20,7,1,1));
-  //rect(31-20,8,1,1);
   crack1Pixels_.add(new Pixel(31-20,9,1,1));
-  //rect(30-20,10,1,1);
   crack1Pixels_.add(new Pixel(30-20,10,1,1));
   
-  //rect(32,11,1,1);
+
   crack2Pixels.add(new Pixel(32,10,1,1));
-  //rect(32,11,1,1);
   crack2Pixels.add(new Pixel(32,11,1,1));
-  //rect(33,12,1,1);
   crack2Pixels.add(new Pixel(33,12,1,1));
-  //rect(34,12,1,1);
   crack2Pixels.add(new Pixel(34,12,1,1));
-  //rect(35,12,1,1);
   crack2Pixels.add(new Pixel(35,12,1,1));
-  //rect(36,11,1,1);
   crack2Pixels.add(new Pixel(36,11,1,1));
-  //rect(34,13,1,1);
-  crack2Pixels.add(new Pixel(34,13,1,1)) ;
-  //rect(35,14,1,1);
+  crack2Pixels.add(new Pixel(34,13,1,1));
   crack2Pixels.add(new Pixel(35,14,1,1));
-  //rect(36,14,1,1);
   crack2Pixels.add(new Pixel(36,14,1,1));
-  //rect(37,15,1,1);
   crack2Pixels.add(new Pixel(37,15,1,1));
-  //rect(38,15,1,1);
   crack2Pixels.add(new Pixel(38,15,1,1));
   
-  //rect(32-20,11,1,1);
   crack2Pixels_.add(new Pixel(32-20,10,1,1));
-  //rect(32-20,11,1,1);
   crack2Pixels_.add(new Pixel(32-20,11,1,1));
-  //rect(33-20,12,1,1);
   crack2Pixels_.add(new Pixel(33-20,12,1,1));
-  //rect(34-20,12,1,1);
   crack2Pixels_.add(new Pixel(34-20,12,1,1));
-  //rect(35-20,12,1,1);
   crack2Pixels_.add(new Pixel(35-20,12,1,1));
-  //rect(36-20,11,1,1);
   crack2Pixels_.add(new Pixel(36-20,11,1,1));
-  //rect(34-20,13,1,1);
-  crack2Pixels_.add(new Pixel(34-20,13,1,1)) ;
-  //rect(35-20,14,1,1);
+  crack2Pixels_.add(new Pixel(34-20,13,1,1));
   crack2Pixels_.add(new Pixel(35-20,14,1,1));
-  //rect(36-20,14,1,1);
   crack2Pixels_.add(new Pixel(36-20,14,1,1));
-  //rect(37-20,15,1,1);
   crack2Pixels_.add(new Pixel(37-20,15,1,1));
-  //rect(38-20,15,1,1);
   crack2Pixels_.add(new Pixel(38-20,15,1,1));
   
-  //rect(31,20,1,1);
   crack3Pixels.add(new Pixel(31,20,1,1));
-  //rect(30,21,1,1);
   crack3Pixels.add(new Pixel(30,21,1,1));
-  //rect(32,19,1,1);
   crack3Pixels.add(new Pixel(32,19,1,1));
-  //rect(33,19,1,1);
   crack3Pixels.add(new Pixel(33,19,1,1));
-  //rect(32,21,1,1);
   crack3Pixels.add(new Pixel(32,21,1,1));
-  //rect(32,22,1,1);
   crack3Pixels.add(new Pixel(32,22,1,1));
-  //rect(33,23,1,1);
   crack3Pixels.add(new Pixel(33,23,1,1));
   
-  //rect(31-20,20,1,1);
   crack3Pixels_.add(new Pixel(31-20,20,1,1));
-  //rect(30-20,21,1,1);
   crack3Pixels_.add(new Pixel(30-20,21,1,1));
-  //rect(32-20,19,1,1);
   crack3Pixels_.add(new Pixel(32-20,19,1,1));
-  //rect(33-20,19,1,1);
   crack3Pixels_.add(new Pixel(33-20,19,1,1));
-  //rect(32-20,21,1,1);
   crack3Pixels_.add(new Pixel(32-20,21,1,1));
-  //rect(32-20,22,1,1);
   crack3Pixels_.add(new Pixel(32-20,22,1,1));
-  //rect(33-20,23,1,1);
   crack3Pixels_.add(new Pixel(33-20,23,1,1));
   
-  //rect(28,17,1,1);
   crack4Pixels.add(new Pixel(33,14,1,1));
   crack4Pixels.add(new Pixel(32,15,1,1));
   crack4Pixels.add(new Pixel(31,14,1,1));
@@ -332,22 +275,8 @@ void setup() {
   crack4Pixels.add(new Pixel(29,16,1,1));
   crack4Pixels.add(new Pixel(28,16,1,1));
   crack4Pixels.add(new Pixel(28,17,1,1));
-  //rect(28,16,1,1);
-  //crack4Pixels.add(new Pixel(28,16,1,1));
-  //rect(29,16,1,1);
- 
-  //rect(30,15,1,1);
-  
-  //rect(31,14,1,1);
-  
-  //rect(32,15,1,1);
-  
-  //rect(33,14,1,1);
-  
-  //rect(34,15,1,1);
-  //crack4Pixels.add(new Pixel(34,15,1,1));
-  
-  //rect(28-20,16,1,1);
+
+
   crack4Pixels_.add(new Pixel(28-20,16,1,1));
   //rect(29-20,16,1,1);
   crack4Pixels_.add(new Pixel(29-20,16,1,1));
